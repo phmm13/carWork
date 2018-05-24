@@ -52,9 +52,11 @@ public class CarroDAO extends DataBaseDAO{
         if(rs.next()){
             c1.setId_carro(rs.getInt("id_carro"));
             c1.setAno_carro(rs.getString("ano_carro"));
+            
             Versao v = new Versao();
             v.setId_versao(rs.getInt("versao_id_versao"));
-            c1.setVersao(v.carregaPorId()));
+            
+            c1.setVersao(v.carregaPorId());
         }
         this.desconectar();
         return c1;
@@ -68,9 +70,11 @@ public class CarroDAO extends DataBaseDAO{
             Carro c = new Carro();
             c.setId_carro(rs.getInt("id_carro"));
             c.setAno_carro(rs.getString("ano_carro"));
+            
             Versao v = new Versao();
             v.setId_versao(rs.getInt("versao_id_versao"));
-            c.setVersao(v.carregaPorId()));
+            
+            c.setVersao(v.carregaPorId());
             
             lista.add(c);
         }

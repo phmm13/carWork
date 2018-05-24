@@ -6,6 +6,8 @@
 
 package model;
 
+import java.util.ArrayList;
+
 /**
  * @author Pedro Henrique Marcelino Matias
  * @date 03/05/2018
@@ -46,5 +48,25 @@ public class Oficina {
 
     public void setTipoOfcina(TipoOficina tipoOfcina) {
         this.tipoOfcina = tipoOfcina;
+    }
+    public void inserir () throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        oDAO.inserir(this);
+    }
+    public void alterar () throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        oDAO.alterar(this);
+    }
+    public void excluir () throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        oDAO.excluir(this);
+    }
+    public Oficina carregaPorId () throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        return oDAO.carregaPorId(this);
+    }
+    public ArrayList<Oficina> lsitar () throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        return oDAO.listar();
     }
 }

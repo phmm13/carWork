@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  * @author Pedro Henrique Marcelino Matias
  * @date 03/05/2018
@@ -37,6 +39,26 @@ public class Versao {
 
     public void setModelo(Modelo modelo) {
         this.modelo = modelo;
+    }
+    public void inserir () throws Exception{
+        VersaoDAO vDAO = new VersaoDAO();
+        vDAO.inserir(this);
+    }
+    public void alterar () throws Exception{
+        VersaoDAO vDAO = new VersaoDAO();
+        vDAO.alterar(this);
+    }
+    public void excluir () throws Exception{
+        VersaoDAO vDAO = new VersaoDAO();
+        vDAO.excluir(this);
+    }
+    public Versao carregaPorId () throws Exception{
+        VersaoDAO vDAO = new VersaoDAO();
+        return vDAO.carregaPorId(this);
+    }
+    public ArrayList<Versao> lsitar () throws Exception{
+        VersaoDAO vDAO = new VersaoDAO();
+        return vDAO.listar();
     }
 
 }

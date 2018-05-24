@@ -6,6 +6,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * @author Pedro Henrique Marcelino Matias
@@ -57,5 +58,37 @@ public class Cliente {
 
     public void setInd_ativo(boolean ind_ativo) {
         this.ind_ativo = ind_ativo;
+    }
+    public void inserir () throws Exception{
+        ClienteDAO cDAO = new ClienteDAO();
+        cDAO.inserir(this);
+    }
+    public void alterar () throws Exception{
+        ClienteDAO cDAO = new ClienteDAO();
+        cDAO.alterar(this);
+    }
+    public void ativar () throws Exception{
+        ClienteDAO cDAO = new ClienteDAO();
+        cDAO.desativar(this);
+    }
+    public void desativar () throws Exception{
+        ClienteDAO cDAO = new ClienteDAO();
+        cDAO.desativar(this);
+    }
+    public Cliente carregaPorId () throws Exception{
+        ClienteDAO cDAO = new ClienteDAO();
+        return cDAO.carregaPorId(this);
+    }
+    public ArrayList<Cliente> lsitar () throws Exception{
+        ClienteDAO cDAO = new ClienteDAO();
+        return cDAO.listar();
+    }
+    public void vincularCarro (int idCarro, int idCliente) throws Exception{
+        ClienteDAO cDAO = new ClienteDAO();
+        cDAO.vincularCarro(idCarro, idCliente);
+    }
+    public ArrayList<Carro> meusCarros () throws Exception{
+        ClienteDAO cDAO = new ClienteDAO();
+        return cDAO.meusCarros(this);
     }
 }

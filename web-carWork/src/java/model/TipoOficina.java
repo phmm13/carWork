@@ -6,6 +6,8 @@
 
 package model;
 
+import java.util.ArrayList;
+
 /**
  * @author Pedro Henrique Marcelino Matias
  * @date 03/05/2018
@@ -28,5 +30,25 @@ public class TipoOficina {
 
     public void setDes_oficina(String des_oficina) {
         this.des_oficina = des_oficina;
+    }
+    public void inserir () throws Exception{
+        TipoOficinaDAO toDAO = new TipoOficinaDAO();
+        toDAO.inserir(this);
+    }
+    public void alterar () throws Exception{
+        TipoOficinaDAO toDAO = new TipoOficinaDAO();
+        toDAO.alterar(this);
+    }
+    public void excluir () throws Exception{
+        TipoOficinaDAO toDAO = new TipoOficinaDAO();
+        toDAO.excluir(this);
+    }
+    public TipoOficina carregaPorId () throws Exception{
+        TipoOficinaDAO toDAO = new TipoOficinaDAO();
+        return toDAO.carregaPorId(this);
+    }
+    public ArrayList<TipoOficina> lsitar () throws Exception{
+        TipoOficinaDAO toDAO = new TipoOficinaDAO();
+        return toDAO.listar();
     }
 }

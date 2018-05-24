@@ -6,6 +6,8 @@
 
 package model;
 
+import java.util.ArrayList;
+
 /**
  * @author Pedro Henrique Marcelino Matias
  * @date 03/05/2018
@@ -73,5 +75,25 @@ public class Endereco {
 
     public void setOficina(Oficina oficina) {
         this.oficina = oficina;
+    }
+    public void inserir () throws Exception{
+        EnderecoDAO eDAO = new EnderecoDAO();
+        eDAO.inserir(this);
+    }
+    public void alterar () throws Exception{
+        EnderecoDAO eDAO = new EnderecoDAO();
+        eDAO.alterar(this);
+    }
+    public void excluir () throws Exception{
+        EnderecoDAO eDAO = new EnderecoDAO();
+        eDAO.excluir(this);
+    }
+    public Endereco carregaPorId () throws Exception{
+        EnderecoDAO eDAO = new EnderecoDAO();
+        return eDAO.carregaPorId(this);
+    }
+    public ArrayList<Endereco> lsitar () throws Exception{
+        EnderecoDAO eDAO = new EnderecoDAO();
+        return eDAO.listar();
     }
 }

@@ -6,6 +6,8 @@
 
 package model;
 
+import java.util.ArrayList;
+
 /**
  * @author Pedro Henrique Marcelino Matias
  * @date 03/05/2018
@@ -37,5 +39,25 @@ public class Modelo {
 
     public void setMarca(Marca marca) {
         this.marca = marca;
+    }
+    public void inserir () throws Exception{
+        ModeloDAO mDAO = new ModeloDAO();
+        mDAO.inserir(this);
+    }
+    public void alterar () throws Exception{
+        ModeloDAO mDAO = new ModeloDAO();
+        mDAO.alterar(this);
+    }
+    public void excluir () throws Exception{
+        ModeloDAO mDAO = new ModeloDAO();
+        mDAO.excluir(this);
+    }
+    public Modelo carregaPorId () throws Exception{
+        ModeloDAO mDAO = new ModeloDAO();
+        return mDAO.carregaPorId(this);
+    }
+    public ArrayList<Modelo> lsitar () throws Exception{
+        ModeloDAO mDAO = new ModeloDAO();
+        return mDAO.listar();
     }
 }

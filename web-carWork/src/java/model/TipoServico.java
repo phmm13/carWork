@@ -6,6 +6,8 @@
 
 package model;
 
+import java.util.ArrayList;
+
 /**
  * @author Pedro Henrique Marcelino Matias
  * @date 03/05/2018
@@ -28,5 +30,25 @@ public class TipoServico {
 
     public void setDes_tipo_servico(String des_tipo_servico) {
         this.des_tipo_servico = des_tipo_servico;
+    }
+    public void inserir () throws Exception{
+        TipoServicoDAO tsDAO = new TipoServicoDAO();
+        tsDAO.inserir(this);
+    }
+    public void alterar () throws Exception{
+        TipoServicoDAO tsDAO = new TipoServicoDAO();
+        tsDAO.alterar(this);
+    }
+    public void excluir () throws Exception{
+        TipoServicoDAO tsDAO = new TipoServicoDAO();
+        tsDAO.excluir(this);
+    }
+    public TipoServico carregaPorId () throws Exception{
+        TipoServicoDAO tsDAO = new TipoServicoDAO();
+        return tsDAO.carregaPorId(this);
+    }
+    public ArrayList<TipoServico> lsitar () throws Exception{
+        TipoServicoDAO tsDAO = new TipoServicoDAO();
+        return tsDAO.listar();
     }
 }

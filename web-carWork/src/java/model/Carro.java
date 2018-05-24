@@ -6,6 +6,8 @@
 
 package model;
 
+import java.util.ArrayList;
+
 /**
  * @author Pedro Henrique Marcelino Matias
  * @date 03/05/2018
@@ -37,5 +39,25 @@ public class Carro {
 
     public void setVersao(Versao versao) {
         this.versao = versao;
+    }
+    public void inserir () throws Exception{
+        CarroDAO cDAO = new CarroDAO();
+        cDAO.inserir(this);
+    }
+    public void alterar () throws Exception{
+        CarroDAO cDAO = new CarroDAO();
+        cDAO.alterar(this);
+    }
+    public void excluir () throws Exception{
+        CarroDAO cDAO = new CarroDAO();
+        cDAO.excluir(this);
+    }
+    public Carro carregaPorId () throws Exception{
+        CarroDAO cDAO = new CarroDAO();
+        return cDAO.carregaPorId(this);
+    }
+    public ArrayList<Carro> lsitar () throws Exception{
+        CarroDAO cDAO = new CarroDAO();
+        return cDAO.listar();
     }
 }
