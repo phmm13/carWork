@@ -66,7 +66,7 @@ public class ModeloDAO extends DataBaseDAO {
     }
 
     public Modelo carregaPorId(Modelo mo) throws Exception {
-        String sql = "SELECT*FROM modelo WHERE id_tipo_servico=?";
+        String sql = "SELECT*FROM modelo WHERE id_modelo=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1, mo.getId_modelo());

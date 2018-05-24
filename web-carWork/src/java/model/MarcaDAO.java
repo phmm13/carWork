@@ -57,7 +57,7 @@ public class MarcaDAO extends DataBaseDAO{
         return lista;
     }
     public Marca carregaPorId(Marca m) throws Exception{
-        String sql = "SELECT*FROM marca WHERE id_cliente=?";
+        String sql = "SELECT*FROM marca WHERE id_marca=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,m.getId_marca());

@@ -4,7 +4,12 @@
     Author     : pedro
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Cliente c = new Cliente();
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +17,55 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Lista de clientes</h1>
+        <hr>
+        <table border="1">
+            <tr>
+                <th>
+                    ID do cliente
+                </th>
+                <th>
+                    Nome cliente
+                </th>
+                <th>
+                    Telefone do cliente
+                </th>
+                <th>
+                    Email do cliente
+                </th>
+                <th>
+                    Opções
+                </th>
+            </tr>
+            <%
+                ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
+                try {
+                    listaCliente = c.lsitar();
+                } catch (Exception e) {
+                    out.println("Erro : " + e);
+                }
+                for (Cliente cl : listaCliente) {
+            %>
+            <tr>
+                <td>
+                    <%=cl.getId_cliente()%>
+                </td>
+                <td>
+                    <%=cl.getNome_cliente()%>
+                </td>
+                <td>
+                    <%=cl.getTelefone_cliente()%>
+                </td>
+                <td>
+                    <%=cl.getEmail_cliente()%>
+                </td>
+                <td>
+                    <a href="detalheCarro.jsp?id=<%=cl.getId_cliente()%>">Detalhes</a>
+                </td>
+            </tr>
+            <%
+                }
+            %>
+        </table>
     </body>
 </html>

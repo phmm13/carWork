@@ -56,7 +56,7 @@ public class Carro {
         CarroDAO cDAO = new CarroDAO();
         return cDAO.carregaPorId(this);
     }
-    public ArrayList<Carro> lsitar () throws Exception{
+    public ArrayList<Carro> listar () throws Exception{
         CarroDAO cDAO = new CarroDAO();
         return cDAO.listar();
     }

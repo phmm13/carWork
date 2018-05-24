@@ -63,7 +63,8 @@ public class CarroDAO extends DataBaseDAO{
     }
     public ArrayList<Carro> listar () throws Exception{
         ArrayList<Carro> lista = new ArrayList<Carro>();
-        String sql = "SELECT*FROM Carro";
+        String sql = "SELECT*FROM carro";
+        this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         while(rs.next()){
@@ -75,7 +76,6 @@ public class CarroDAO extends DataBaseDAO{
             v.setId_versao(rs.getInt("versao_id_versao"));
             
             c.setVersao(v.carregaPorId());
-            
             lista.add(c);
         }
         this.desconectar();
