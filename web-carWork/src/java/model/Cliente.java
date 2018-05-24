@@ -87,8 +87,5 @@ public class Cliente {
         ClienteDAO cDAO = new ClienteDAO();
         cDAO.vincularCarro(idCarro, idCliente);
     }
-    public ArrayList<Carro> meusCarros () throws Exception{
-        ClienteDAO cDAO = new ClienteDAO();
-        return cDAO.meusCarros(this);
-    }
+    
 }

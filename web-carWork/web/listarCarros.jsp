@@ -41,7 +41,6 @@
                 } catch (Exception e) {
                     out.println("Erro: " + e);
                 }
-                out.println(listaCarro.size());
                 for (Carro cl : listaCarro) {
             %>
             <tr>

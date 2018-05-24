@@ -98,19 +98,6 @@ public class ClienteDAO extends DataBaseDAO{
         pstm.execute();
         this.desconectar();
     }
-    public ArrayList<Carro> meusCarros (Cliente c) throws Exception{
-        ArrayList<Carro> lista = new ArrayList<Carro>();
-        String sql = "SELECT carro_id_carro FROM carro_cliente WHERE = ?";
-        this.conectar();
-        PreparedStatement pstm = cn.prepareStatement(sql);
-        pstm.setInt(1, c.getId_cliente());
-        ResultSet rs = pstm.executeQuery();
-        // depois que fizer o carroDAO, utilizar o metood de carregar por id para pegar as informações do carro
-        while(rs.next()){
-            CarroDAO cDAO = new CarroDAO();
-        }
-        this.desconectar();
-        return lista;
-    }
+    
     
 }

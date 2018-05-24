@@ -47,7 +47,7 @@ public class TipoOficina {
         TipoOficinaDAO toDAO = new TipoOficinaDAO();
         return toDAO.carregaPorId(this);
     }
-    public ArrayList<TipoOficina> lsitar () throws Exception{
+    public ArrayList<TipoOficina> listar () throws Exception{
         TipoOficinaDAO toDAO = new TipoOficinaDAO();
         return toDAO.listar();
     }

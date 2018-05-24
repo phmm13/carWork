@@ -65,7 +65,7 @@ public class Oficina {
         OficinaDAO oDAO = new OficinaDAO();
         return oDAO.carregaPorId(this);
     }
-    public ArrayList<Oficina> lsitar () throws Exception{
+    public ArrayList<Oficina> listar () throws Exception{
         OficinaDAO oDAO = new OficinaDAO();
         return oDAO.listar();
     }

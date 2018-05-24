@@ -4,7 +4,12 @@
     Author     : pedro
 --%>
 
+<%@page import="model.Marca"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Marca m = new Marca();
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +17,43 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Lista de marcas</h1>
+        <hr>
+        <table border="1">
+            <tr>
+                <th>
+                    ID da marca
+                </th>
+                <th>
+                    Nome da marca
+                </th>
+                <th>
+                    Opções
+                </th>
+            </tr>
+            <%                
+                ArrayList<Marca> listaMarca = new ArrayList<Marca>();
+                try {
+                    listaMarca = m.listar();
+                } catch (Exception e) {
+                    out.println("Erro: " + e);
+                }
+                for (Marca ml : listaMarca) {
+            %>
+            <tr>
+                <td>
+                    <%=ml.getId_marca()%>
+                </td>
+                <td>
+                    <%=ml.getNome_marca()%>
+                </td>
+                <td>
+                    <a href="detalheMarca.jsp?id=<%ml.getId_marca();%>">Detalhes</a>
+                </td>
+            </tr>
+            <%
+                }
+            %>
+        </table>
     </body>
 </html>

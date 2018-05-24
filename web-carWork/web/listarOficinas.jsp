@@ -4,7 +4,12 @@
     Author     : pedro
 --%>
 
+<%@page import="model.Oficina"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Oficina o = new Oficina();
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +17,55 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Lista de oficinas</h1>
+        <hr>
+        <table border="1">
+            <tr>
+                <th>
+                    ID da oficina
+                </th>
+                <th>
+                    Tipo da oficina
+                </th>
+                <th>
+                    Nome da oficina
+                </th>
+                <th>
+                    Telefone da oficina
+                </th>
+                <th>
+                    Opções
+                </th>
+            </tr>
+            <%                
+                ArrayList<Oficina> listaOficina = new ArrayList<Oficina>();
+                try {
+                    listaOficina = o.listar();
+                } catch (Exception e) {
+                    out.println("Erro: " + e);
+                }
+                for (Oficina ol : listaOficina) {
+            %>
+            <tr>
+                <td>
+                    <%=ol.getId_oficina()%>
+                </td>
+                <td>
+                    <%=ol.getTipoOfcina().getDes_oficina()%>
+                </td>
+                <td>
+                    <%=ol.getNome_oficina()%>
+                </td>
+                <td>
+                    <%=ol.getTelefone_oficina()%>
+                </td>
+                <td>
+                    <a href="detalheOficina.jsp?id=<%ol.getId_oficina();%>">Detalhes</a>
+                </td>
+            </tr>
+            <%
+                }
+            %>
+        </table>
     </body>
 </html>

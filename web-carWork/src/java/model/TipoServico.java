@@ -47,7 +47,7 @@ public class TipoServico {
         TipoServicoDAO tsDAO = new TipoServicoDAO();
         return tsDAO.carregaPorId(this);
     }
-    public ArrayList<TipoServico> lsitar () throws Exception{
+    public ArrayList<TipoServico> listar () throws Exception{
         TipoServicoDAO tsDAO = new TipoServicoDAO();
         return tsDAO.listar();
     }

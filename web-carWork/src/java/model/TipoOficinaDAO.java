@@ -57,7 +57,7 @@ public class TipoOficinaDAO extends DataBaseDAO{
         return lista;
     }
     public TipoOficina carregaPorId(TipoOficina to) throws Exception{
-        String sql = "SELECT*FROM tipo_oficina WHERE id_tipo_servico=?";
+        String sql = "SELECT*FROM tipo_oficina WHERE id_tipo_oficina=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,to.getId_tipo_oficina());

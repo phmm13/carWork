@@ -17,18 +17,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Lista de versoes</h1>
+        <h1>Lista de modelos</h1>
         <hr>
         <table border="1">
             <tr>
                 <th>
-                    ID do carro
+                    ID do modelo
                 </th>
                 <th>
-                    Ano do carro
+                    Nome do modelo
                 </th>
                 <th>
-                    Versão do carro
+                    Nome da marca
                 </th>
                 <th>
                     Opções
@@ -54,7 +54,7 @@
                     <%=ml.getMarca().getNome_marca()%>
                 </td>
                 <td>
-                    <a href="detalheVersao.jsp?id=<%ml.getId_modelo();%>">Detalhes</a>
+                    <a href="detalheModelo.jsp?id=<%ml.getId_modelo();%>">Detalhes</a>
                 </td>
             </tr>
             <%

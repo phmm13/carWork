@@ -22,13 +22,13 @@
         <table border="1">
             <tr>
                 <th>
-                    ID do carro
+                    ID da versai
                 </th>
                 <th>
-                    Ano do carro
+                    Nome da versao
                 </th>
                 <th>
-                    Versão do carro
+                    Nome do modelo
                 </th>
                 <th>
                     Opções

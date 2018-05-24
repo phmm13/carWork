@@ -47,7 +47,7 @@ public class Marca {
         MarcaDAO mDAO = new MarcaDAO();
         return mDAO.carregaPorId(this);
     }
-    public ArrayList<Marca> lsitar () throws Exception{
+    public ArrayList<Marca> listar () throws Exception{
         MarcaDAO mDAO = new MarcaDAO();
         return mDAO.listar();
     }
