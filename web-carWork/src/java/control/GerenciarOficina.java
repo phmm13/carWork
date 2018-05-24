@@ -38,7 +38,24 @@ public class GerenciarOficina extends HttpServlet {
             out.println("<title>Servlet GerenciarOficina</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet GerenciarOficina at " + request.getContextPath() + "</h1>");
+            try{
+                String op = request.getParameter("op");
+                switch(op){
+                    case "inserir":{
+                        
+                        break;
+                    }
+                    case "alterar":{
+                        
+                        break;
+                    }
+                    case "excluir":{
+                        
+                    }
+                }
+            }catch (Exception e){
+                System.out.println("Erro : "+e);
+            }
             out.println("</body>");
             out.println("</html>");
         }

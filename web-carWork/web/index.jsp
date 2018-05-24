@@ -23,5 +23,9 @@
         <a href="listarOficinas.jsp">Lista de Oficinas</a> <br>
         <a href="listarTipoOficina.jsp">Lista do tipo de oficina</a> <br>
         <a href="listarTipoServico.jsp">Lista do tipo de serviço </a> <br>
+        <a href="viewCadastroCliente.jsp">View 1 </a> <br>
+        <a href="viewInfo.jsp">View 2 </a> <br>
+        <a href="viewRankingMontadoras.jsp">View 3 </a> <br>
+        <a href="viewRankingOficinas.jsp">View 4 </a> <br>
     </body>
 </html>
