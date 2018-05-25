@@ -49,7 +49,7 @@
                     <%=tsl.getDes_tipo_servico()%>
                 </td>
                 <td>
-                    <a href="detalheTipoServico.jsp?id=<%tsl.getId_tipo_servico();%>">Detalhes</a>
+                    <a href="excluirTipoServico.do?op=excluir&id=<%tsl.getId_tipo_servico();%>">Excluir<\a>
                     /
                     <a href="formAlteraTipoServico.jsp?id=<%=tsl.getId_tipo_servico()%>">Alterar</a>
                 </td>

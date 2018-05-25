@@ -61,7 +61,7 @@
                     <%=ol.getTelefone_oficina()%>
                 </td>
                 <td>
-                    <a href="detalheOficina.jsp?id=<%ol.getId_oficina();%>">Detalhes</a>
+                    <a href="GerenciarOficina.do?op=excluir&id=<%ol.getId_oficina();%>">Excluir<\a>
                     /
                     <a href="formAlteraOficina.jsp?id=<%=ol.getId_oficina()%>">Alterar</a>
                 </td>

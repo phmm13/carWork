@@ -62,7 +62,7 @@
                     <%=cl.getEmail_cliente()%>
                 </td>
                 <td>
-                    <a href="detalheCliente.jsp?id=<%=cl.getId_cliente()%>">Detalhes</a>
+                    <a href="gerenciarCliente.do?op=destivar&id=<%=cl.getId_cliente()%>">Desativar<\a>
                     /
                     <a href="formAlteraCliente.jsp?id=<%=cl.getId_cliente()%>">Alterar</a>
                 </td>

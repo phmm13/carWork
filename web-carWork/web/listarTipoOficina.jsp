@@ -50,7 +50,7 @@
                     <%=tol.getDes_oficina()%>
                 </td>
                 <td>
-                    <a href="detalheTipoOficina.jsp?id=<%tol.getId_tipo_oficina();%>">Detalhes</a>
+                    <a href="excluirTipoOficina.do?op=excluir&id=<%tol.getId_tipo_oficina();%>">Excluir<\a>
                     /
                     <a href="formAlteraTipoOficina.jsp?id=<%=tol.getId_tipo_oficina()%>">Alterar</a>
                 </td>

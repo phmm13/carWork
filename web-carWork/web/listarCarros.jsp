@@ -55,7 +55,7 @@
                     <%=cl.getVersao().getNome_versao()%>
                 </td>
                 <td>
-                    <a href="detalheCarro.jsp?id=<%cl.getId_carro();%>">Detalhes</a>
+                    <a href="gerenciarCarro.do?op=excluir&idid=<%cl.getId_carro();%>">Excluir<\a>
                     /
                     <a href="formAlteraCarro.jsp?id=<%=cl.getId_carro()%>">Alterar</a>
                 </td>
