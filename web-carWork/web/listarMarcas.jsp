@@ -49,7 +49,7 @@
                     <%=ml.getNome_marca()%>
                 </td>
                 <td>
-                    <a href="detalheMarca.jsp?id=<%ml.getId_marca();%>">Detalhes</a>
+                    <a href="GerenciarMarca.do?op=excluir&id=<%ml.getId_marca();%>">Excluir<\a>
                     /
                     <a href="formAlteraMarca.jsp?id=<%=ml.getId_marca()%>">Alterar</a>
                 </td>

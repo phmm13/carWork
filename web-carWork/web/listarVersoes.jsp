@@ -55,7 +55,7 @@
                     <%=vl.getModelo().getNome_modelo()%>
                 </td>
                 <td>
-                    <a href="detalheVersao.jsp?id=<%vl.getId_versao();%>">Detalhes</a>
+                    <a href="excluirVersao.do?=opexcluir&id=<%vl.getId_versao();%>">Excluir<\a>
                     /
                     <a href="formAlteraVersao.jsp?id=<%=vl.getId_versao()%>">Alterar</a>
                 </td>

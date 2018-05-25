@@ -73,7 +73,7 @@
                     <%=el.getNumero()%>
                 </td>
                 <td>
-                    <a href="detalheCarro.jsp?id=<%=el.getId_endereco()%>">Detalhes</a>
+                    <a href="gerenciarCarro.do?op=excluir&id=<%=el.getId_endereco()%>">Excluir<\a>
                     /
                     <a href="formAlteraEndereco.jsp?id=<%=el.getId_endereco()%>">Alterar</a>
                 </td>
