@@ -17,7 +17,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Lista tipos de serviço</h1>
+        <h1>View "ranking montadoras"</h1>
         <hr>
         <table border="1">
             <tr>
