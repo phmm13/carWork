@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.TipoOficina;
 
 /**
  *
@@ -42,15 +43,26 @@ public class GerenciarTipoOficina extends HttpServlet {
                 String op = request.getParameter("op");
                 switch(op){
                     case "inserir":{
-                        
+                        TipoOficina to = new TipoOficina();
+                        to.setDes_oficina(request.getParameter("descricao"));
+                        to.inserir();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "alterar":{
-                        
+                        TipoOficina to = new TipoOficina();
+                        to.setId_tipo_oficina(Integer.parseInt(request.getParameter("id")));
+                        to.setDes_oficina(request.getParameter("descricao"));
+                        to.alterar();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "excluir":{
-                        
+                        TipoOficina to = new TipoOficina();
+                        to.setId_tipo_oficina(Integer.parseInt(request.getParameter("id")));
+                        to.excluir();
+                        response.sendRedirect("index.jsp");
+                        break;
                     }
                 }
             }catch (Exception e){

@@ -56,7 +56,7 @@ public class Modelo {
         ModeloDAO mDAO = new ModeloDAO();
         return mDAO.carregaPorId(this);
     }
-    public ArrayList<Modelo> lsitar () throws Exception{
+    public ArrayList<Modelo> listar () throws Exception{
         ModeloDAO mDAO = new ModeloDAO();
         return mDAO.listar();
     }

@@ -19,6 +19,7 @@
     <body>
         <h1>Lista de oficinas</h1>
         <hr>
+        <a href="formInserirOficina.jsp">Cadastrar oficina nova</a>
         <table border="1">
             <tr>
                 <th>
@@ -61,6 +62,8 @@
                 </td>
                 <td>
                     <a href="detalheOficina.jsp?id=<%ol.getId_oficina();%>">Detalhes</a>
+                    /
+                    <a href="formAlteraOficina.jsp?id=<%=ol.getId_oficina()%>">Alterar</a>
                 </td>
             </tr>
             <%

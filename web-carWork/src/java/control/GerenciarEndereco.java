@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Endereco;
+import model.Oficina;
 
 /**
  *
@@ -35,26 +37,55 @@ public class GerenciarEndereco extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GerenciarEndereco</title>");            
+            out.println("<title>Servlet GerenciarEndereco</title>");
             out.println("</head>");
             out.println("<body>");
-            try{
+            try {
                 String op = request.getParameter("op");
-                switch(op){
-                    case "inserir":{
-                        
+                switch (op) {
+                    case "inserir": {
+                        Endereco e = new Endereco();
+                        e.setCep(request.getParameter("cep"));
+                        e.setLogradouro(request.getParameter("logradouro"));
+                        e.setBairro(request.getParameter("bairro"));
+                        e.setComplemento(request.getParameter("complemento"));
+                        e.setNumero(Integer.parseInt(request.getParameter("numero")));
+                        Oficina o = new Oficina();
+                        o.setId_oficina(Integer.parseInt(request.getParameter("oficina")));
+
+                        e.setOficina(o);
+
+                        e.inserir();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
-                    case "alterar":{
-                        
+                    case "alterar": {
+                        Endereco e = new Endereco();
+                        e.setId_endereco(Integer.parseInt(request.getParameter("id")));
+                        e.setCep(request.getParameter("cep"));
+                        e.setLogradouro(request.getParameter("logradouro"));
+                        e.setBairro(request.getParameter("bairro"));
+                        e.setComplemento(request.getParameter("complemento"));
+                        e.setNumero(Integer.parseInt(request.getParameter("numero")));
+
+                        Oficina o = new Oficina();
+                        o.setId_oficina(Integer.parseInt(request.getParameter("oficina")));
+
+                        e.setOficina(o);
+                        e.alterar();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
-                    case "excluir":{
-                        
+                    case "excluir": {
+                        Endereco e = new Endereco();
+                        e.setId_endereco(Integer.parseInt(request.getParameter("id")));
+                        e.excluir();
+                        response.sendRedirect("index.jsp");
+                        break;
                     }
                 }
-            }catch (Exception e){
-                System.out.println("Erro : "+e);
+            } catch (Exception e) {
+                System.out.println("Erro : " + e);
             }
             out.println("</body>");
             out.println("</html>");

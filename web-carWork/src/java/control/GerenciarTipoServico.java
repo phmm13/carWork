@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.TipoServico;
 
 /**
  *
@@ -42,15 +43,26 @@ public class GerenciarTipoServico extends HttpServlet {
                 String op = request.getParameter("op");
                 switch(op){
                     case "inserir":{
-                        
+                        TipoServico ts = new TipoServico();
+                        ts.setDes_tipo_servico(request.getParameter("descricao"));
+                        ts.inserir();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "alterar":{
-                        
+                        TipoServico ts = new TipoServico();
+                        ts.setId_tipo_servico(Integer.parseInt(request.getParameter("id")));
+                        ts.setDes_tipo_servico(request.getParameter("descricao"));
+                        ts.alterar();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "excluir":{
-                        
+                        TipoServico ts = new TipoServico();
+                        ts.setId_tipo_servico(Integer.parseInt(request.getParameter("id")));
+                        ts.excluir();
+                        response.sendRedirect("index.jsp");
+                        break;
                     }
                 }
             }catch (Exception e){
@@ -61,7 +73,7 @@ public class GerenciarTipoServico extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left ts edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

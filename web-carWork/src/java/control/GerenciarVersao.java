@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Modelo;
+import model.Versao;
 
 /**
  *
@@ -42,15 +44,32 @@ public class GerenciarVersao extends HttpServlet {
                 String op = request.getParameter("op");
                 switch(op){
                     case "inserir":{
-                        
+                        Versao ve = new Versao();
+                        ve.setNome_versao(request.getParameter("nome"));
+                        Modelo mo = new Modelo();
+                        mo.setId_modelo(Integer.parseInt(request.getParameter("modelo")));
+                        ve.setModelo(mo);
+                        ve.inserir();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "alterar":{
-                        
+                        Versao ve = new Versao();
+                        ve.setId_versao(Integer.parseInt(request.getParameter("id")));
+                        ve.setNome_versao(request.getParameter("nome"));
+                        Modelo mo = new Modelo();
+                        mo.setId_modelo(Integer.parseInt(request.getParameter("modelo")));
+                        ve.setModelo(mo);
+                        ve.alterar();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "excluir":{
-                        
+                        Versao ve = new Versao();
+                        ve.setId_versao(Integer.parseInt(request.getParameter("id")));
+                        ve.excluir();
+                        response.sendRedirect("index.jsp");
+                        break;
                     }
                 }
             }catch (Exception e){

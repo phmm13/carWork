@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Oficina;
+import model.TipoOficina;
 
 /**
  *
@@ -42,15 +44,34 @@ public class GerenciarOficina extends HttpServlet {
                 String op = request.getParameter("op");
                 switch(op){
                     case "inserir":{
-                        
+                        Oficina of = new Oficina();
+                        of.setNome_oficina(request.getParameter("nome"));
+                        of.setTelefone_oficina(request.getParameter("telefone"));
+                        TipoOficina to = new TipoOficina();
+                        to.setId_tipo_oficina(Integer.parseInt(request.getParameter("tipoOficina")));
+                        of.setTipoOfcina(to);
+                        of.inserir();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "alterar":{
-                        
+                        Oficina of = new Oficina();
+                        of.setId_oficina(Integer.parseInt(request.getParameter("id")));
+                        of.setNome_oficina(request.getParameter("nome"));
+                        of.setTelefone_oficina(request.getParameter("telefone"));
+                        TipoOficina to = new TipoOficina();
+                        to.setId_tipo_oficina(Integer.parseInt(request.getParameter("tipoOficina")));
+                        of.setTipoOfcina(to);
+                        of.alterar();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "excluir":{
-                        
+                        Oficina of = new Oficina();
+                        of.setId_oficina(Integer.parseInt(request.getParameter("id")));
+                        of.excluir();
+                        response.sendRedirect("index.jsp");
+                        break;
                     }
                 }
             }catch (Exception e){

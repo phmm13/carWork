@@ -19,6 +19,7 @@
     <body>
         <h1>Lista de modelos</h1>
         <hr>
+        <a href="formInserirModelo.jsp">Cadastrar modelo novo</a>
         <table border="1">
             <tr>
                 <th>
@@ -37,7 +38,7 @@
             <%
                 ArrayList<Modelo> listaCarro = new ArrayList<Modelo>();
                 try {
-                    listaCarro = m.lsitar();
+                    listaCarro = m.listar();
                 } catch (Exception e) {
                     out.println("Erro : " + e);
                 }
@@ -55,6 +56,8 @@
                 </td>
                 <td>
                     <a href="detalheModelo.jsp?id=<%ml.getId_modelo();%>">Detalhes</a>
+                    /
+                    <a href="formAlteraModelo.jsp?id=<%=ml.getId_modelo()%>">Alterar</a>
                 </td>
             </tr>
             <%

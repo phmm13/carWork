@@ -19,6 +19,7 @@
     <body>
         <h1>Lista de carros</h1>
         <hr>
+        <a href="formInserirCarro.jsp">Cadastra carro novo</a>
         <table border="1">
             <tr>
                 <th>
@@ -55,6 +56,8 @@
                 </td>
                 <td>
                     <a href="detalheCarro.jsp?id=<%cl.getId_carro();%>">Detalhes</a>
+                    /
+                    <a href="formAlteraCarro.jsp?id=<%=cl.getId_carro()%>">Alterar</a>
                 </td>
             </tr>
             <%

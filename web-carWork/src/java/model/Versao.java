@@ -56,7 +56,7 @@ public class Versao {
         VersaoDAO vDAO = new VersaoDAO();
         return vDAO.carregaPorId(this);
     }
-    public ArrayList<Versao> lsitar () throws Exception{
+    public ArrayList<Versao> listar () throws Exception{
         VersaoDAO vDAO = new VersaoDAO();
         return vDAO.listar();
     }

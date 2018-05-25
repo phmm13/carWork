@@ -26,7 +26,7 @@ public class VersaoDAO extends DataBaseDAO {
     }
 
     public void alterar(Versao ve) throws Exception {
-        String sql = "UPDATE versao SET nome_versao=?,modelo_id_modelo=? WHERE id_modelo=?";
+        String sql = "UPDATE versao SET nome_versao=?,modelo_id_modelo=? WHERE id_versao=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1, ve.getNome_versao());

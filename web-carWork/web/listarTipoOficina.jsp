@@ -19,6 +19,8 @@
     <body>
         <h1>Lista de tipos de oficina</h1>
         <hr>
+        
+        <a href="formInserirTipoOficina.jsp">Cadastrar Tipo de oficina nova</a>
         <table border="1">
             <tr>
                 <th>
@@ -49,6 +51,8 @@
                 </td>
                 <td>
                     <a href="detalheTipoOficina.jsp?id=<%tol.getId_tipo_oficina();%>">Detalhes</a>
+                    /
+                    <a href="formAlteraTipoOficina.jsp?id=<%=tol.getId_tipo_oficina()%>">Alterar</a>
                 </td>
             </tr>
             <%

@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Carro;
+import model.Versao;
 
 /**
  *
@@ -42,15 +44,32 @@ public class GerenciarCarro extends HttpServlet {
                 String op = request.getParameter("op");
                 switch(op){
                     case "inserir":{
-                        
+                        Carro ca = new Carro();
+                        ca.setAno_carro(request.getParameter("ano"));
+                        Versao ve = new Versao();
+                        ve.setId_versao(Integer.parseInt(request.getParameter("versao")));
+                        ca.setVersao(ve);
+                        ca.inserir();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "alterar":{
-                        
+                        Carro ca = new Carro();
+                        ca.setId_carro(Integer.parseInt(request.getParameter("id")));
+                        ca.setAno_carro(request.getParameter("ano"));
+                        Versao ve = new Versao();
+                        ve.setId_versao(Integer.parseInt(request.getParameter("versao")));
+                        ca.setVersao(ve);
+                        ca.alterar();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "excluir":{
-                        
+                        Carro ca = new Carro();
+                        ca.setId_carro(Integer.parseInt(request.getParameter("id")));
+                        ca.excluir();
+                        response.sendRedirect("index.jsp");
+                        break;
                     }
                 }
             }catch (Exception e){

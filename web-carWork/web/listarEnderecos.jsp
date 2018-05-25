@@ -19,6 +19,7 @@
     <body>
         <h1>Lista de endereços</h1>
         <hr>
+        <a href="formInserirEndereco.jsp">Cadastrar endereço novo</a>
         <table border="1">
             <tr>
                 <th>
@@ -73,6 +74,8 @@
                 </td>
                 <td>
                     <a href="detalheCarro.jsp?id=<%=el.getId_endereco()%>">Detalhes</a>
+                    /
+                    <a href="formAlteraEndereco.jsp?id=<%=el.getId_endereco()%>">Alterar</a>
                 </td>
             </tr>
             <%

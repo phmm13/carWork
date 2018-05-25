@@ -19,6 +19,8 @@
     <body>
         <h1>Lista de clientes</h1>
         <hr>
+        
+        <a href="formInserirCliente.jsp">Cadastrar cliente novo</a>
         <table border="1">
             <tr>
                 <th>
@@ -61,6 +63,8 @@
                 </td>
                 <td>
                     <a href="detalheCliente.jsp?id=<%=cl.getId_cliente()%>">Detalhes</a>
+                    /
+                    <a href="formAlteraCliente.jsp?id=<%=cl.getId_cliente()%>">Alterar</a>
                 </td>
             </tr>
             <%

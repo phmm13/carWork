@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Marca;
+import model.Modelo;
 
 /**
  *
@@ -42,15 +44,32 @@ public class GerenciarModelo extends HttpServlet {
                 String op = request.getParameter("op");
                 switch(op){
                     case "inserir":{
-                        
+                        Modelo mo = new Modelo();
+                        mo.setNome_modelo(request.getParameter("nome"));
+                        Marca ma = new Marca();
+                        ma.setId_marca(Integer.parseInt(request.getParameter("marca")));
+                        mo.setMarca(ma);
+                        mo.inserir();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "alterar":{
-                        
+                        Modelo mo = new Modelo();
+                        mo.setId_modelo(Integer.parseInt(request.getParameter("id")));
+                        mo.setNome_modelo(request.getParameter("nome"));
+                        Marca ma = new Marca();
+                        ma.setId_marca(Integer.parseInt(request.getParameter("marca")));
+                        mo.setMarca(ma);
+                        mo.alterar();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
                     case "excluir":{
-                        
+                        Modelo mo = new Modelo();
+                        mo.setId_modelo(Integer.parseInt(request.getParameter("id")));
+                        mo.excluir();
+                        response.sendRedirect("index.jsp");
+                        break;
                     }
                 }
             }catch (Exception e){

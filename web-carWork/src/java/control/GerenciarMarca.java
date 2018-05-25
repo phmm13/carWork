@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Marca;
 
 /**
  *
@@ -35,26 +36,38 @@ public class GerenciarMarca extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GerenciarMarca</title>");            
+            out.println("<title>Servlet GerenciarMarca</title>");
             out.println("</head>");
             out.println("<body>");
-            try{
+            try {
                 String op = request.getParameter("op");
-                switch(op){
-                    case "inserir":{
-                        
+                switch (op) {
+                    case "inserir": {
+                        Marca m = new Marca();
+                        m.setNome_marca(request.getParameter("nome"));
+                        m.inserir();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
-                    case "alterar":{
-                        
+                    case "alterar": {
+                        Marca m = new Marca();
+                        m.setId_marca(Integer.parseInt(request.getParameter("id")));
+                        m.setNome_marca(request.getParameter("nome"));
+                        m.inserir();
+                        response.sendRedirect("index.jsp");
                         break;
                     }
-                    case "excluir":{
+                    case "excluir": {
+                        Marca m = new Marca();
+                        m.setId_marca(Integer.parseInt(request.getParameter("id")));
+                        m.excluir();;
+                        response.sendRedirect("index.jsp"); 
                         
+                        break;
                     }
                 }
-            }catch (Exception e){
-                System.out.println("Erro : "+e);
+            } catch (Exception e) {
+                System.out.println("Erro : " + e);
             }
             out.println("</body>");
             out.println("</html>");

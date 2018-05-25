@@ -19,6 +19,7 @@
     <body>
         <h1>Lista de versoes</h1>
         <hr>
+        <a href="formInserirVersao.jsp">Cadastrar nova versão</a>
         <table border="1">
             <tr>
                 <th>
@@ -37,7 +38,7 @@
             <%
                 ArrayList<Versao> listaCarro = new ArrayList<Versao>();
                 try {
-                    listaCarro = v.lsitar();
+                    listaCarro = v.listar();
                 } catch (Exception e) {
                     out.println("Erro : " + e);
                 }
@@ -55,6 +56,8 @@
                 </td>
                 <td>
                     <a href="detalheVersao.jsp?id=<%vl.getId_versao();%>">Detalhes</a>
+                    /
+                    <a href="formAlteraVersao.jsp?id=<%=vl.getId_versao()%>">Alterar</a>
                 </td>
             </tr>
             <%

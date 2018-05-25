@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Cliente;
 
 /**
  *
@@ -42,15 +43,30 @@ public class GerenciarCliente extends HttpServlet {
                 String op = request.getParameter("op");
                 switch(op){
                     case "inserir":{
-                        
+                        Cliente c = new Cliente();
+                        c.setEmail_cliente(request.getParameter("email"));
+                        c.setNome_cliente(request.getParameter("nome"));
+                        c.setTelefone_cliente(request.getParameter("telefone"));
+                        c.inserir();
+                        out.println("<script> location.href='index.jsp'</script>");
                         break;
                     }
                     case "alterar":{
-                        
+                        Cliente c = new Cliente();
+                        c.setId_cliente(Integer.parseInt(request.getParameter("id")));
+                        c.setEmail_cliente(request.getParameter("email"));
+                        c.setNome_cliente(request.getParameter("nome"));
+                        c.setTelefone_cliente(request.getParameter("telefone"));
+                        c.alterar();
+                        out.println("<script> location.href='index.jsp'</script>");
                         break;
                     }
-                    case "excluir":{
-                        
+                    case "desativar":{
+                        Cliente c = new Cliente();
+                        c.setId_cliente(Integer.parseInt(request.getParameter("id")));
+                        c.desativar();
+                        out.println("<script> location.href='index.jsp'</script>");
+                        break;
                     }
                 }
             }catch (Exception e){

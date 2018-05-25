@@ -19,6 +19,7 @@
     <body>
         <h1>Lista de marcas</h1>
         <hr>
+        <a href="formInserirMarca.jsp">Cadastrar marca nova</a>
         <table border="1">
             <tr>
                 <th>
@@ -49,6 +50,8 @@
                 </td>
                 <td>
                     <a href="detalheMarca.jsp?id=<%ml.getId_marca();%>">Detalhes</a>
+                    /
+                    <a href="formAlteraMarca.jsp?id=<%=ml.getId_marca()%>">Alterar</a>
                 </td>
             </tr>
             <%

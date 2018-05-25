@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class OficinaDAO extends DataBaseDAO{
     public void inserir(Oficina of) throws Exception {
-        String sql = "INSERT INTO oficina (nome_oficina,telefone_oficina,tipo_oficina_id_tipo_oficina) VALUES (?,?)";
+        String sql = "INSERT INTO oficina (nome_oficina,telefone_oficina,tipo_oficina_id_tipo_oficina) VALUES (?,?,?)";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1, of.getNome_oficina());

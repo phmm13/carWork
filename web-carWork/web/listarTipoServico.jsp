@@ -19,6 +19,7 @@
     <body>
         <h1>Lista tipos de serviço</h1>
         <hr>
+        <a href="formInserirTipoServico.jsp">Cadastrar novo tipo de serviço</a>
         <table border="1">
             <tr>
                 <th>
@@ -49,6 +50,8 @@
                 </td>
                 <td>
                     <a href="detalheTipoServico.jsp?id=<%tsl.getId_tipo_servico();%>">Detalhes</a>
+                    /
+                    <a href="formAlteraTipoServico.jsp?id=<%=tsl.getId_tipo_servico()%>">Alterar</a>
                 </td>
             </tr>
             <%
