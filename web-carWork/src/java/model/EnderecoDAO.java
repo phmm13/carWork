@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class EnderecoDAO extends DataBaseDAO{
     public void inserir(Endereco en) throws Exception {
-        String sql = "INSERT INTO endereco (cep,logradouro,bairro,complemento,numero,oficina_id_oficina) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO tb_endereco (cep_endereco,lgd_endereco,bro_endereco,cmp_endereco,num_endereco,cod_oficina) VALUES (?,?,?,?,?,?)";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1, en.getCep());
@@ -30,7 +30,7 @@ public class EnderecoDAO extends DataBaseDAO{
     }
 
     public void alterar(Endereco en) throws Exception {
-        String sql = "UPDATE endereco SET cep=?,logradouro=?,bairro=?,complemento=?,numero=?,oficina_id_oficina=? WHERE id_endereco=?";
+        String sql = "UPDATE tb_endereco SET cep_endereco=?,lgd_endereco=?,bro_endereco=?,cmp_endereco=?,num_endereco=?,cod_oficina=? WHERE id_endereco=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1, en.getCep());
@@ -45,7 +45,7 @@ public class EnderecoDAO extends DataBaseDAO{
     }
 
     public void excluir(Endereco en) throws Exception {
-        String sql = "DELETE endereco WHERE id_endereco = ?";
+        String sql = "DELETE tb_endereco WHERE id_endereco = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1, en.getId_endereco());
@@ -55,21 +55,21 @@ public class EnderecoDAO extends DataBaseDAO{
 
     public ArrayList<Endereco> listar() throws Exception {
         ArrayList<Endereco> lista = new ArrayList<Endereco>();
-        String sql = "SELECT*FROM endereco";
+        String sql = "SELECT*FROM tb_endereco";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         while (rs.next()) {
             Endereco en = new Endereco();
             en.setId_endereco(rs.getInt("id_endereco"));
-            en.setCep(rs.getString("cep"));
-            en.setLogradouro(rs.getString("logradouro"));
-            en.setBairro(rs.getString("bairro"));
-            en.setComplemento(rs.getString("complemento"));
-            en.setNumero(rs.getInt("numero"));
+            en.setCep(rs.getString("cep_endereco"));
+            en.setLogradouro(rs.getString("lgd_endereco"));
+            en.setBairro(rs.getString("bro_endereco"));
+            en.setComplemento(rs.getString("cmp_endereco"));
+            en.setNumero(rs.getInt("num_endereco"));
             
             Oficina of = new Oficina();
-            of.setId_oficina(rs.getInt("oficina_id_oficina"));
+            of.setId_oficina(rs.getInt("cod_oficina"));
             
             en.setOficina(of.carregaPorId());
 
@@ -80,7 +80,7 @@ public class EnderecoDAO extends DataBaseDAO{
     }
 
     public Endereco carregaPorId(Endereco en) throws Exception {
-        String sql = "SELECT*FROM endereco WHERE id_endereco=?";
+        String sql = "SELECT*FROM tb_endereco WHERE id_endereco=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1, en.getId_endereco());
@@ -88,14 +88,14 @@ public class EnderecoDAO extends DataBaseDAO{
         Endereco en1 = new Endereco();
         if (rs.next()) {
             en1.setId_endereco(rs.getInt("id_endereco"));
-            en1.setCep(rs.getString("cep"));
-            en1.setLogradouro(rs.getString("logradouro"));
-            en1.setBairro(rs.getString("bairro"));
-            en1.setComplemento(rs.getString("complemento"));
-            en1.setNumero(rs.getInt("numero"));
+            en1.setCep(rs.getString("cep_endereco"));
+            en1.setLogradouro(rs.getString("lgd_endereco"));
+            en1.setBairro(rs.getString("bro_endereco"));
+            en1.setComplemento(rs.getString("cmp_endereco"));
+            en1.setNumero(rs.getInt("num_endereco"));
             
             Oficina of = new Oficina();
-            of.setId_oficina(rs.getInt("oficina_id_oficina"));
+            of.setId_oficina(rs.getInt("cod_oficina"));
             
             en1.setOficina(of.carregaPorId());
         }

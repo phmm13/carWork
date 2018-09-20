@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class OficinaDAO extends DataBaseDAO{
     public void inserir(Oficina of) throws Exception {
-        String sql = "INSERT INTO oficina (nome_oficina,telefone_oficina,tipo_oficina_id_tipo_oficina) VALUES (?,?,?)";
+        String sql = "INSERT INTO tb_oficina (nme_oficina,tel_oficina,cod_tipo_oficina) VALUES (?,?,?)";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1, of.getNome_oficina());
@@ -27,7 +27,7 @@ public class OficinaDAO extends DataBaseDAO{
     }
 
     public void alterar(Oficina of) throws Exception {
-        String sql = "UPDATE oficina SET nome_oficina=?,telefone_oficina=?,tipo_oficina_id_tipo_oficina=? WHERE id_oficina=?";
+        String sql = "UPDATE tb_oficina SET nme_oficina=?,tel_oficina=?,cod_tipo_oficina=? WHERE idt_oficina=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1, of.getNome_oficina());
@@ -39,7 +39,7 @@ public class OficinaDAO extends DataBaseDAO{
     }
 
     public void excluir(Oficina of) throws Exception {
-        String sql = "DELETE oficina WHERE id_oficina = ?";
+        String sql = "DELETE tb_oficina WHERE idt_oficina = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1, of.getId_oficina());
@@ -49,18 +49,18 @@ public class OficinaDAO extends DataBaseDAO{
 
     public ArrayList<Oficina> listar() throws Exception {
         ArrayList<Oficina> lista = new ArrayList<Oficina>();
-        String sql = "SELECT*FROM oficina";
+        String sql = "SELECT*FROM tb_oficina";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         while (rs.next()) {
             Oficina of = new Oficina();
-            of.setId_oficina(rs.getInt("id_oficina"));
-            of.setNome_oficina(rs.getString("nome_oficina"));
-            of.setTelefone_oficina(rs.getString("telefone_oficina"));
+            of.setId_oficina(rs.getInt("idt_oficina"));
+            of.setNome_oficina(rs.getString("nme_oficina"));
+            of.setTelefone_oficina(rs.getString("tel_oficina"));
             
             TipoOficina to = new TipoOficina();
-            to.setId_tipo_oficina(rs.getInt("tipo_oficina_id_tipo_oficina"));
+            to.setId_tipo_oficina(rs.getInt("cod_tipo_oficina"));
             
             of.setTipoOfcina(to.carregaPorId());
 
@@ -71,19 +71,19 @@ public class OficinaDAO extends DataBaseDAO{
     }
 
     public Oficina carregaPorId(Oficina of) throws Exception {
-        String sql = "SELECT*FROM oficina WHERE id_oficina=?";
+        String sql = "SELECT*FROM tb_oficina WHERE idt_oficina=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1, of.getId_oficina());
         ResultSet rs = pstm.executeQuery();
         Oficina of1 = new Oficina();
         if (rs.next()) {
-            of1.setId_oficina(rs.getInt("id_oficina"));
-            of1.setNome_oficina(rs.getString("nome_oficina"));
-            of1.setTelefone_oficina(rs.getString("telefone_oficina"));
+            of1.setId_oficina(rs.getInt("idt_oficina"));
+            of1.setNome_oficina(rs.getString("nme_oficina"));
+            of1.setTelefone_oficina(rs.getString("tel_oficina"));
             
             TipoOficina to = new TipoOficina();
-            to.setId_tipo_oficina(rs.getInt("tipo_oficina_id_tipo_oficina"));
+            to.setId_tipo_oficina(rs.getInt("cod_tipo_oficina"));
             
             of1.setTipoOfcina(to.carregaPorId());
         }

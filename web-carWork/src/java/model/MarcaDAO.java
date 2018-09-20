@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class MarcaDAO extends DataBaseDAO{
      public void inserir (Marca m) throws Exception{
-        String sql = "INSERT INTO marca (nome_marca) VALUES (?)";
+        String sql = "INSERT INTO tb_marca (nme_marca) VALUES (?)";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1,m.getNome_marca());
@@ -24,7 +24,7 @@ public class MarcaDAO extends DataBaseDAO{
         this.desconectar();
     }
     public void alterar (Marca m) throws Exception{
-        String sql = "UPDATE marca SET nome_marca=? WHERE id_marca=?";
+        String sql = "UPDATE tb_marca SET nme_marca=? WHERE idt_marca=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1,m.getNome_marca());
@@ -33,7 +33,7 @@ public class MarcaDAO extends DataBaseDAO{
         this.desconectar();
     }
     public void excluir (Marca m) throws Exception{
-        String sql = "DELETE marca WHERE id_marca = ?";
+        String sql = "DELETE tb_marca WHERE idt_marca = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,m.getId_marca());
@@ -42,14 +42,14 @@ public class MarcaDAO extends DataBaseDAO{
     }
     public ArrayList<Marca> listar () throws Exception{
         ArrayList<Marca> lista = new ArrayList<Marca>();
-        String sql = "SELECT*FROM marca";
+        String sql = "SELECT*FROM tb_marca";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         while(rs.next()){
             Marca m = new Marca();
-            m.setId_marca(rs.getInt("id_marca"));
-            m.setNome_marca(rs.getString("nome_marca"));
+            m.setId_marca(rs.getInt("idt_marca"));
+            m.setNome_marca(rs.getString("nme_marca"));
             
             lista.add(m);
         }
@@ -57,15 +57,15 @@ public class MarcaDAO extends DataBaseDAO{
         return lista;
     }
     public Marca carregaPorId(Marca m) throws Exception{
-        String sql = "SELECT*FROM marca WHERE id_marca=?";
+        String sql = "SELECT*FROM tb_marca WHERE idt_marca=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,m.getId_marca());
         ResultSet rs = pstm.executeQuery();
         Marca m1 = new Marca();
         if(rs.next()){
-            m1.setId_marca(rs.getInt("id_marca"));
-            m1.setNome_marca(rs.getString("nome_marca"));
+            m1.setId_marca(rs.getInt("idt_marca"));
+            m1.setNome_marca(rs.getString("nme_marca"));
         }
         
         this.desconectar();

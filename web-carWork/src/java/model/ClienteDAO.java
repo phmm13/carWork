@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ClienteDAO extends DataBaseDAO{
     
     public void inserir (Cliente c) throws Exception{
-        String sql = "INSERT INTO cliente (nome_cliente,telefone_cliente,email_cliente) VALUES (?,?,?)";
+        String sql = "INSERT INTO tb_cliente (nme_cliente,cel_cliente,eml_cliente) VALUES (?,?,?)";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1,c.getNome_cliente());
@@ -27,7 +27,7 @@ public class ClienteDAO extends DataBaseDAO{
         this.desconectar();
     }
     public void alterar (Cliente c) throws Exception{
-        String sql = "UPDATE cliente SET nome_cliente=?,telefone_cliente=?,email_cliente=?WHERE id_cliente=?";
+        String sql = "UPDATE tb_cliente SET nme_cliente=?,cel_cliente=?,eml_cliente=?WHERE idt_cliente=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1,c.getNome_cliente());
@@ -38,7 +38,7 @@ public class ClienteDAO extends DataBaseDAO{
         this.desconectar();
     }
     public void ativar (Cliente c) throws Exception{
-        String sql = "UPDATE cliente SET ind_ativo = true WHERE id_cliente = ?";
+        String sql = "UPDATE tb_cliente SET flg_cliente = true WHERE idt_cliente = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,c.getId_cliente());
@@ -46,7 +46,7 @@ public class ClienteDAO extends DataBaseDAO{
         this.desconectar();
     }
     public void desativar (Cliente c) throws Exception{
-        String sql = "UPDATE cliente SET ind_ativo = false WHERE id_cliente = ?";
+        String sql = "UPDATE tb_cliente SET flg_cliente = false WHERE idt_cliente = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,c.getId_cliente());
@@ -55,17 +55,17 @@ public class ClienteDAO extends DataBaseDAO{
     }
     public ArrayList<Cliente> listar () throws Exception{
         ArrayList<Cliente> lista = new ArrayList<Cliente>();
-        String sql = "SELECT*FROM cliente";
+        String sql = "SELECT*FROM tb_cliente";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         while(rs.next()){
             Cliente c = new Cliente();
-            c.setId_cliente(rs.getInt("id_cliente"));
-            c.setNome_cliente(rs.getString("nome_cliente"));
-            c.setTelefone_cliente(rs.getString("telefone_cliente"));
-            c.setEmail_cliente(rs.getString("email_cliente"));
-            c.setInd_ativo(rs.getBoolean("ind_ativo"));
+            c.setId_cliente(rs.getInt("idt_cliente"));
+            c.setNome_cliente(rs.getString("nme_cliente"));
+            c.setTelefone_cliente(rs.getString("cel_cliente"));
+            c.setEmail_cliente(rs.getString("eml_cliente"));
+            c.setInd_ativo(rs.getBoolean("flg_cliente"));
             
             lista.add(c);
         }
@@ -73,24 +73,24 @@ public class ClienteDAO extends DataBaseDAO{
         return lista;
     }
     public Cliente carregaPorId(Cliente c) throws Exception{
-        String sql = "SELECT*FROM cliente WHERE id_cliente=?";
+        String sql = "SELECT*FROM tb_cliente WHERE idt_cliente=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,c.getId_cliente());
         ResultSet rs = pstm.executeQuery();
         Cliente c1 = new Cliente();
         if(rs.next()){
-            c1.setId_cliente(rs.getInt("id_cliente"));
-            c1.setNome_cliente(rs.getString("nome_cliente"));
-            c1.setTelefone_cliente(rs.getString("telefone_cliente"));
-            c1.setEmail_cliente(rs.getString("email_cliente"));
-            c1.setInd_ativo(rs.getBoolean("ind_ativo"));
+            c1.setId_cliente(rs.getInt("idt_cliente"));
+            c1.setNome_cliente(rs.getString("nme_cliente"));
+            c1.setTelefone_cliente(rs.getString("cel_cliente"));
+            c1.setEmail_cliente(rs.getString("eml_cliente"));
+            c1.setInd_ativo(rs.getBoolean("flg_cliente"));
         }
         this.desconectar();
         return c1;
     }
     public void vincularCarro (int idCarro,int idCliente) throws Exception{
-        String sql = "INSERT INTO carro_cliente (carro_id_carro,cliente_id_cliente) VALUES (?,?)";
+        String sql = "INSERT INTO ta_carro_cliente (cod_carro,cod_cliente) VALUES (?,?)";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1, idCarro);

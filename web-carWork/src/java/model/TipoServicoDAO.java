@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class TipoServicoDAO extends DataBaseDAO{
     public void inserir (TipoServico ts) throws Exception{
-        String sql = "INSERT INTO tipo_servico (des_tipo_servico) VALUES (?)";
+        String sql = "INSERT INTO td_tipo_servico (dsc_tipo_servico) VALUES (?)";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1,ts.getDes_tipo_servico());
@@ -24,7 +24,7 @@ public class TipoServicoDAO extends DataBaseDAO{
         this.desconectar();
     }
     public void alterar (TipoServico ts) throws Exception{
-        String sql = "UPDATE tipo_servico SET des_tipo_servico=? WHERE id_tipo_servico=?";
+        String sql = "UPDATE td_tipo_servico SET dsc_tipo_servico=? WHERE idt_tipo_servico=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1,ts.getDes_tipo_servico());
@@ -33,7 +33,7 @@ public class TipoServicoDAO extends DataBaseDAO{
         this.desconectar();
     }
     public void excluir (TipoServico ts) throws Exception{
-        String sql = "DELETE tipo_servico WHERE id_tipo_servico = ?";
+        String sql = "DELETE td_tipo_servico WHERE idt_tipo_servico = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,ts.getId_tipo_servico());
@@ -42,14 +42,14 @@ public class TipoServicoDAO extends DataBaseDAO{
     }
     public ArrayList<TipoServico> listar () throws Exception{
         ArrayList<TipoServico> lista = new ArrayList<TipoServico>();
-        String sql = "SELECT*FROM tipo_servico";
+        String sql = "SELECT*FROM td_tipo_servico";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         while(rs.next()){
             TipoServico ts = new TipoServico();
-            ts.setId_tipo_servico(rs.getInt("id_tipo_servico"));
-            ts.setDes_tipo_servico(rs.getString("des_tipo_servico"));
+            ts.setId_tipo_servico(rs.getInt("idt_tipo_servico"));
+            ts.setDes_tipo_servico(rs.getString("dsc_tipo_servico"));
             
             lista.add(ts);
         }
@@ -57,15 +57,15 @@ public class TipoServicoDAO extends DataBaseDAO{
         return lista;
     }
     public TipoServico carregaPorId(TipoServico ts) throws Exception{
-        String sql = "SELECT*FROM tipo_servico WHERE id_tipo_servico=?";
+        String sql = "SELECT*FROM td_tipo_servico WHERE idt_tipo_servico=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,ts.getId_tipo_servico());
         ResultSet rs = pstm.executeQuery();
         TipoServico ts1 = new TipoServico();
         if(rs.next()){
-            ts1.setId_tipo_servico(rs.getInt("id_tipo_servico"));
-            ts1.setDes_tipo_servico(rs.getString("des_tipo_servico"));
+            ts1.setId_tipo_servico(rs.getInt("idt_tipo_servico"));
+            ts1.setDes_tipo_servico(rs.getString("dsc_tipo_servico"));
         }
         
         this.desconectar();

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class VersaoDAO extends DataBaseDAO {
 
     public void inserir(Versao ve) throws Exception {
-        String sql = "INSERT INTO versao (nome_versao,modelo_id_modelo) VALUES (?,?)";
+        String sql = "INSERT INTO tb_versao (nme_versao,cod_modelo) VALUES (?,?)";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1, ve.getNome_versao());
@@ -26,7 +26,7 @@ public class VersaoDAO extends DataBaseDAO {
     }
 
     public void alterar(Versao ve) throws Exception {
-        String sql = "UPDATE versao SET nome_versao=?,modelo_id_modelo=? WHERE id_versao=?";
+        String sql = "UPDATE tb_versao SET nme_versao=?,cod_modelo=? WHERE idt_versao=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1, ve.getNome_versao());
@@ -37,7 +37,7 @@ public class VersaoDAO extends DataBaseDAO {
     }
 
     public void excluir(Versao ve) throws Exception {
-        String sql = "DELETE versao WHERE id_versao = ?";
+        String sql = "DELETE tb_versao WHERE idt_versao = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1, ve.getId_versao());
@@ -47,16 +47,16 @@ public class VersaoDAO extends DataBaseDAO {
 
     public ArrayList<Versao> listar() throws Exception {
         ArrayList<Versao> lista = new ArrayList<Versao>();
-        String sql = "SELECT*FROM versao";
+        String sql = "SELECT*FROM tb_versao";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         while (rs.next()) {
             Versao ve = new Versao();
-            ve.setId_versao(rs.getInt("id_versao"));
-            ve.setNome_versao(rs.getString("nome_versao"));
+            ve.setId_versao(rs.getInt("idt_versao"));
+            ve.setNome_versao(rs.getString("nme_versao"));
             Modelo mo = new Modelo();
-            mo.setId_modelo(rs.getInt("modelo_id_modelo"));
+            mo.setId_modelo(rs.getInt("cod_modelo"));
             ve.setModelo(mo.carregaPorId());
 
             lista.add(ve);
@@ -66,17 +66,17 @@ public class VersaoDAO extends DataBaseDAO {
     }
 
     public Versao carregaPorId(Versao ve) throws Exception {
-        String sql = "SELECT*FROM versao WHERE id_versao=?";
+        String sql = "SELECT*FROM tb_versao WHERE idt_versao=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1, ve.getId_versao());
         ResultSet rs = pstm.executeQuery();
         Versao ve1 = new Versao();
         if (rs.next()) {
-            ve1.setId_versao(rs.getInt("id_versao"));
-            ve1.setNome_versao(rs.getString("nome_versao"));
+            ve1.setId_versao(rs.getInt("idt_versao"));
+            ve1.setNome_versao(rs.getString("nme_versao"));
             Modelo mo = new Modelo();
-            mo.setId_modelo(rs.getInt("modelo_id_modelo"));
+            mo.setId_modelo(rs.getInt("cod_modelo"));
             ve1.setModelo(mo.carregaPorId());
         }
 

@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class TipoOficinaDAO extends DataBaseDAO{
     public void inserir (TipoOficina to) throws Exception{
-        String sql = "INSERT INTO tipo_oficina (des_oficina) VALUES (?)";
+        String sql = "INSERT INTO td_tipo_oficina (dsc_oficina) VALUES (?)";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1,to.getDes_oficina());
@@ -24,7 +24,7 @@ public class TipoOficinaDAO extends DataBaseDAO{
         this.desconectar();
     }
     public void alterar (TipoOficina to) throws Exception{
-        String sql = "UPDATE tipo_oficina SET des_oficina=? WHERE id_tipo_oficina=?";
+        String sql = "UPDATE td_tipo_oficina SET dsc_oficina=? WHERE idt_tipo_oficina=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setString(1,to.getDes_oficina());
@@ -33,7 +33,7 @@ public class TipoOficinaDAO extends DataBaseDAO{
         this.desconectar();
     }
     public void excluir (TipoOficina to) throws Exception{
-        String sql = "DELETE tipo_oficina WHERE id_tipo_oficina = ?";
+        String sql = "DELETE td_tipo_oficina WHERE idt_tipo_oficina = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,to.getId_tipo_oficina());
@@ -42,14 +42,14 @@ public class TipoOficinaDAO extends DataBaseDAO{
     }
     public ArrayList<TipoOficina> listar () throws Exception{
         ArrayList<TipoOficina> lista = new ArrayList<TipoOficina>();
-        String sql = "SELECT*FROM tipo_oficina";
+        String sql = "SELECT*FROM td_tipo_oficina";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         while(rs.next()){
             TipoOficina to = new TipoOficina();
-            to.setId_tipo_oficina(rs.getInt("id_tipo_oficina"));
-            to.setDes_oficina(rs.getString("des_oficina"));
+            to.setId_tipo_oficina(rs.getInt("idt_tipo_oficina"));
+            to.setDes_oficina(rs.getString("dsc_oficina"));
             
             lista.add(to);
         }
@@ -57,15 +57,15 @@ public class TipoOficinaDAO extends DataBaseDAO{
         return lista;
     }
     public TipoOficina carregaPorId(TipoOficina to) throws Exception{
-        String sql = "SELECT*FROM tipo_oficina WHERE id_tipo_oficina=?";
+        String sql = "SELECT*FROM td_tipo_oficina WHERE idt_tipo_oficina=?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
         pstm.setInt(1,to.getId_tipo_oficina());
         ResultSet rs = pstm.executeQuery();
         TipoOficina to1 = new TipoOficina();
         if(rs.next()){
-            to1.setId_tipo_oficina(rs.getInt("id_tipo_oficina"));
-            to1.setDes_oficina(rs.getString("des_oficina"));
+            to1.setId_tipo_oficina(rs.getInt("idt_tipo_oficina"));
+            to1.setDes_oficina(rs.getString("dsc_oficina"));
         }
         
         this.desconectar();
