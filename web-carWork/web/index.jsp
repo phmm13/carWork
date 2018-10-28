@@ -1,4 +1,14 @@
-ï»¿<!doctype html>
+<%@page import="model.TipoOficina"%>
+<%@page import="model.TipoServico"%>
+<%@page import="model.Carro"%>
+<%@page import="java.util.ArrayList"%>
+<%
+    ArrayList<Carro> carros = new Carro().listar();
+    ArrayList<TipoServico> servicos = new TipoServico().listar();
+    ArrayList<TipoOficina> tipoOficina = new TipoOficina().listar();
+
+%>
+?<!doctype html>
 <html lang="en">
 
     <!-- Google Web Fonts
@@ -67,8 +77,8 @@
 
                         <div class="slash-list">
                             <span>Minha Conta: </span>
-                            <a href="cad.html">Logar</a>
-                            <a href="cad.html">Registrar</a>
+                            <a href="login.jsp">Logar</a>
+                            <a href="cadastroOficina.jsp">Registrar</a>
                         </div>
 
                     </div>
@@ -95,8 +105,8 @@
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-toggle"  href="catalogo.html">
-                                                        ServiÃ§os<span class="fa fa-caret-down"></span>
+                                                    <a class="dropdown-toggle"  href="catalogo.jsp">
+                                                        Serviços<span class="fa fa-caret-down"></span>
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
@@ -131,8 +141,8 @@
                                                 <div class="container">
                                                     <div class="carousel-caption b-slider__info">
                                                         <h3>Encontre uma Oficina</h3>
-                                                        <h2>Realize suas manutenÃ§Ãµes nas melhores oficinas disponiveis</h2>
-                                                        <a class="btn m-btn" href="catalogo.html">Mais Detalhes<span class="fa fa-angle-right"></span></a>
+                                                        <h2>Realize suas manutenções nas melhores oficinas disponiveis</h2>
+                                                        <a class="btn m-btn" href="catalogo.jsp">Mais Detalhes<span class="fa fa-angle-right"></span></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -314,7 +324,7 @@
                                                     <nav class="b-footer__content-nav">
                                                         <ul>
                                                             <li><a href="#">Home</a></li>
-                                                            <li><a href="#">ServiÃ§os</a></li>
+                                                            <li><a href="#">Serviços</a></li>
                                                             <li><a href="#">Quem Somos</a></li>
 
                                                         </ul>

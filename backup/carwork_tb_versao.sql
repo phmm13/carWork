@@ -16,31 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `oficina_carro`
+-- Table structure for table `tb_versao`
 --
 
-DROP TABLE IF EXISTS `oficina_carro`;
+DROP TABLE IF EXISTS `tb_versao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `oficina_carro` (
-  `oficina_id_oficina` int(11) NOT NULL,
-  `carro_id_carro` int(11) NOT NULL,
-  PRIMARY KEY (`oficina_id_oficina`,`carro_id_carro`),
-  KEY `fk_Oficina_has_Carro_Carro1_idx` (`carro_id_carro`),
-  KEY `fk_Oficina_has_Carro_Oficina1_idx` (`oficina_id_oficina`),
-  CONSTRAINT `fk_Oficina_has_Carro_Carro1` FOREIGN KEY (`carro_id_carro`) REFERENCES `carro` (`id_carro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Oficina_has_Carro_Oficina1` FOREIGN KEY (`oficina_id_oficina`) REFERENCES `oficina` (`id_oficina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `tb_versao` (
+  `idt_versao` int(11) NOT NULL,
+  `nme_versao` varchar(50) NOT NULL,
+  `cod_modelo` int(11) NOT NULL,
+  PRIMARY KEY (`idt_versao`),
+  KEY `fk_Versão_Modelo1_idx` (`cod_modelo`),
+  CONSTRAINT `fk_Versão_Modelo1` FOREIGN KEY (`cod_modelo`) REFERENCES `tb_modelo` (`idt_modelo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `oficina_carro`
+-- Dumping data for table `tb_versao`
 --
 
-LOCK TABLES `oficina_carro` WRITE;
-/*!40000 ALTER TABLE `oficina_carro` DISABLE KEYS */;
-INSERT INTO `oficina_carro` VALUES (10,5),(14,5),(10,6),(13,6),(15,7),(16,7),(13,8),(13,9);
-/*!40000 ALTER TABLE `oficina_carro` ENABLE KEYS */;
+LOCK TABLES `tb_versao` WRITE;
+/*!40000 ALTER TABLE `tb_versao` DISABLE KEYS */;
+INSERT INTO `tb_versao` VALUES (1,'Mobi Easy',1),(2,'Mobi Way',1),(3,'Mobi Drive GSR',1),(4,'Argo Drive',2),(5,'Argo HGT',2),(6,'Uno Way',3),(7,'Uno Drive',3),(8,'Uno Sporting GSR',3),(9,'Siena Essence',4),(10,'Siena Working',4),(11,'Siena Hard Working',4),(12,'Confort',5),(13,'Confort Plus',5),(14,'Rspec',5),(15,'Modelo de entrada',6),(16,'GL',6),(17,'GLS',6),(18,'Attitude',7),(19,'Pulse',7),(20,'GLS',8),(21,'Versao Limitada',8),(22,'Track',9),(23,'TrendLine',9),(24,'Comfortline',10),(25,'TSI',10),(26,'Cross Up',11),(27,'Pepper',11),(28,'TSI',12),(29,'GTI',12),(30,'Sport',13),(31,' M Sport',13),(32,'Sport',14),(33,'Sport GT',14),(34,' M5 Sport',15),(35,'Sport',16),(36,'M',16),(37,'RS5 Coupe',17),(38,'TTS Coupe',18),(39,'TTS Roadster',18),(40,'SportBack',19),(41,'Roadster',20);
+/*!40000 ALTER TABLE `tb_versao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24 10:18:22
+-- Dump completed on 2018-10-18 21:15:10

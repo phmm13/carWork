@@ -16,31 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `oficina`
+-- Table structure for table `tb_oficina`
 --
 
-DROP TABLE IF EXISTS `oficina`;
+DROP TABLE IF EXISTS `tb_oficina`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `oficina` (
-  `id_oficina` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo_oficina_id_tipo_oficina` int(11) NOT NULL,
-  `nome_oficina` varchar(40) NOT NULL,
-  `telefone_oficina` varchar(10) NOT NULL,
-  PRIMARY KEY (`id_oficina`),
-  KEY `fk_Oficina_Tipo de Oficina1_idx` (`tipo_oficina_id_tipo_oficina`),
-  CONSTRAINT `fk_Oficina_Tipo de Oficina1` FOREIGN KEY (`tipo_oficina_id_tipo_oficina`) REFERENCES `tipo_oficina` (`id_tipo_oficina`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+CREATE TABLE `tb_oficina` (
+  `idt_oficina` int(11) NOT NULL AUTO_INCREMENT,
+  `cod_tipo_oficina` int(11) NOT NULL,
+  `nme_oficina` varchar(50) NOT NULL,
+  `tel_oficina` varchar(20) NOT NULL,
+  `cnpj_oficina` varchar(45) NOT NULL,
+  `eml_oficina` varchar(45) DEFAULT NULL,
+  `usr_oficina` varchar(30) NOT NULL,
+  `pwd_oficina` varchar(128) NOT NULL,
+  PRIMARY KEY (`idt_oficina`,`cnpj_oficina`),
+  KEY `fk_Oficina_Tipo de Oficina1_idx` (`cod_tipo_oficina`),
+  CONSTRAINT `fk_Oficina_Tipo de Oficina1` FOREIGN KEY (`cod_tipo_oficina`) REFERENCES `td_tipo_oficina` (`idt_tipo_oficina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `oficina`
+-- Dumping data for table `tb_oficina`
 --
 
-LOCK TABLES `oficina` WRITE;
-/*!40000 ALTER TABLE `oficina` DISABLE KEYS */;
-INSERT INTO `oficina` VALUES (10,4,'Oficina do seu zé','35954878'),(13,4,'Plaza motors','32524080'),(14,6,'Oficina pague menos','35955388'),(15,7,'Sérvulo car','33541432'),(16,9,'Freedom honda','32514879');
-/*!40000 ALTER TABLE `oficina` ENABLE KEYS */;
+LOCK TABLES `tb_oficina` WRITE;
+/*!40000 ALTER TABLE `tb_oficina` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_oficina` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24 10:18:22
+-- Dump completed on 2018-10-18 21:15:10

@@ -16,27 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tipo_oficina`
+-- Table structure for table `tb_endereco`
 --
 
-DROP TABLE IF EXISTS `tipo_oficina`;
+DROP TABLE IF EXISTS `tb_endereco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tipo_oficina` (
-  `id_tipo_oficina` int(11) NOT NULL AUTO_INCREMENT,
-  `des_oficina` varchar(20) NOT NULL,
-  PRIMARY KEY (`id_tipo_oficina`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+CREATE TABLE `tb_endereco` (
+  `idt_endereco` int(11) NOT NULL AUTO_INCREMENT,
+  `cep_endereco` varchar(9) NOT NULL,
+  `lgd_endereco` varchar(45) NOT NULL,
+  `bro_endereco` varchar(45) NOT NULL,
+  `cmp_endereco` varchar(45) DEFAULT NULL,
+  `num_endereco` int(11) NOT NULL,
+  `cod_oficina` int(11) NOT NULL,
+  PRIMARY KEY (`idt_endereco`),
+  UNIQUE KEY `ID_OFICINA_UNIQUE` (`idt_endereco`),
+  KEY `fk_Endereço_Oficina1_idx` (`cod_oficina`),
+  CONSTRAINT `fk_Endereço_Oficina1` FOREIGN KEY (`cod_oficina`) REFERENCES `tb_oficina` (`idt_oficina`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tipo_oficina`
+-- Dumping data for table `tb_endereco`
 --
 
-LOCK TABLES `tipo_oficina` WRITE;
-/*!40000 ALTER TABLE `tipo_oficina` DISABLE KEYS */;
-INSERT INTO `tipo_oficina` VALUES (4,'Autorizada'),(5,'Oficina'),(6,'Concessionária'),(7,'Autorizada'),(8,'Oficina'),(9,'Concessionária');
-/*!40000 ALTER TABLE `tipo_oficina` ENABLE KEYS */;
+LOCK TABLES `tb_endereco` WRITE;
+/*!40000 ALTER TABLE `tb_endereco` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24 10:18:21
+-- Dump completed on 2018-10-18 21:15:10

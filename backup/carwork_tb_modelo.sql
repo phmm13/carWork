@@ -16,31 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cliente`
+-- Table structure for table `tb_modelo`
 --
 
-DROP TABLE IF EXISTS `cliente`;
+DROP TABLE IF EXISTS `tb_modelo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cliente` (
-  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_cliente` varchar(45) NOT NULL,
-  `telefone_cliente` varchar(11) DEFAULT NULL,
-  `email_cliente` varchar(45) DEFAULT NULL,
-  `ind_atiivo` bit(1) NOT NULL DEFAULT b'0',
-  PRIMARY KEY (`id_cliente`),
-  UNIQUE KEY `id_Cliente_UNIQUE` (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+CREATE TABLE `tb_modelo` (
+  `idt_modelo` int(11) NOT NULL,
+  `nme_modelo` varchar(50) NOT NULL,
+  `cod_marce` int(11) NOT NULL,
+  PRIMARY KEY (`idt_modelo`),
+  KEY `fk_modelo_marca1_idx` (`cod_marce`),
+  CONSTRAINT `fk_modelo_marca1` FOREIGN KEY (`cod_marce`) REFERENCES `tb_marca` (`idt_marca`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cliente`
+-- Dumping data for table `tb_modelo`
 --
 
-LOCK TABLES `cliente` WRITE;
-/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (4,'Pedro Henrique',NULL,'pedromarcelino699@gmail.com','\0'),(5,'Maria da silva',NULL,NULL,'\0'),(6,'Carlos André','35409080','carlos123@gmail.com','\0'),(7,'Ranielle de Moraes Ferreira',NULL,'raniellef@outlook.com','\0'),(8,'Joao Pedro',NULL,'jpalvesc@hotmail.com','\0'),(9,'Lucas Santiago','981314151',NULL,'\0'),(10,'Filipe Sabino','35846981',NULL,'\0'),(11,'Vitor Gabriel','983043450',NULL,'\0');
-/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+LOCK TABLES `tb_modelo` WRITE;
+/*!40000 ALTER TABLE `tb_modelo` DISABLE KEYS */;
+INSERT INTO `tb_modelo` VALUES (1,'Mobi',0),(2,'Argo',0),(3,'Uno',0),(4,'Siena',0),(5,'HB20',0),(6,'IX35',0),(7,'I30',0),(8,'Creta',0),(9,'Gol',0),(10,'Golf',0),(11,'Up',0),(12,'Jetta',0),(13,'X4',0),(14,'328i',0),(15,'M5',0),(16,'528i M',0),(17,'RS5',0),(18,'TTS',0),(19,'A1',0),(20,'Q3',0);
+/*!40000 ALTER TABLE `tb_modelo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24 10:18:22
+-- Dump completed on 2018-10-18 21:15:09

@@ -115,8 +115,8 @@
 
 ="slash-list">
 <span>Minha Conta: </span>
-              <a href="cad.html">Logar</a>
-              <a href="cad.html">Registrar</a>
+              <a href="login.html">Logar</a>
+              <a href="cadastroOficina.html">Registrar</a>
 </div>
 
 </div>
@@ -239,7 +239,9 @@
 
 <div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
   <div class="container">
-    <a href="home.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="listings.html" class="b-breadCumbs__page">Oficinas</a><span class="fa fa-angle-right"></span><a href="listingsTwo.html" class="b-breadCumbs__page">AUTOMOTIVE</a>
+    <a href="index.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span>
+    <a href="#" onclick="funcaoVOltar()"class="b-breadCumbs__page">Oficinas</a><span class="fa fa-angle-right"></span>
+    AUTOMOTIVE
   </div>
 </div><!--b-breadCumbs-->
 

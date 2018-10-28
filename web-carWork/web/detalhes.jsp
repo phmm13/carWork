@@ -115,8 +115,8 @@
 
 ="slash-list">
 <span>Minha Conta: </span>
-              <a href="cad.html">Logar</a>
-              <a href="cad.html">Registrar</a>
+              <a href="login.jsp">Logar</a>
+              <a href="cadastroOficina.jsp">Registrar</a>
 </div>
 
 </div>
@@ -165,7 +165,7 @@
 ="dropdown">
 										<a class
 
-="dropdown-toggle"  href="index.html">Home <span class
+="dropdown-toggle"  href="index.jsp">Home <span class
 
 ="fa fa-caret-down"></span></a>
 										
@@ -175,7 +175,7 @@
 ="dropdown">
 										<a class
 
-="dropdown-toggle"  href="catalogo.html">Serviços<span class
+="dropdown-toggle"  href="catalogo.jsp">Serviços<span class
 
 ="fa fa-caret-down"></span></a>
 										
@@ -239,7 +239,7 @@
 
 <div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
   <div class="container">
-    <a href="home.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="#" class="b-breadCumbs__page">Oficinas</a><span class="fa fa-angle-right"></span><a href="#" class="b-breadCumbs__page">AUTOMOTIVE</a>
+    <a href="index.jsp" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="#" class="b-breadCumbs__page">Oficinas</a><span class="fa fa-angle-right"></span><a href="#" class="b-breadCumbs__page">AUTOMOTIVE</a>
   </div>
 </div>
 

@@ -141,4 +141,28 @@ public class Oficina {
         OficinaDAO oDAO = new OficinaDAO();
         return oDAO.listar();
     }
+    public Oficina login(String usuario,String senha) throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        return oDAO.login(usuario,senha);
+    }
+    public void vincularCarro(int idCarro) throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        oDAO.vincularCarro(this, idCarro);
+    }
+    public void vincularServico(int idServico) throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        oDAO.vincularServico(this, idServico);
+    }
+    public ArrayList<TipoServico> servicosVinculados() throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        return oDAO.servicosVinculados(this);
+    }
+    public ArrayList<Carro> carrosVinculados() throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        return oDAO.carrosVinculados(this);
+    }
+    public ArrayList<Oficina> buscaPorCarro(Carro c,TipoServico ts,TipoOficina to) throws Exception{
+        OficinaDAO oDAO = new OficinaDAO();
+        return oDAO.buscaPorCarro(c,ts,to);
+    }
 }

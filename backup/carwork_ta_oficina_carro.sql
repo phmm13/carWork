@@ -16,27 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `marca`
+-- Table structure for table `ta_oficina_carro`
 --
 
-DROP TABLE IF EXISTS `marca`;
+DROP TABLE IF EXISTS `ta_oficina_carro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `marca` (
-  `id_marca` int(11) NOT NULL,
-  `nome_marca` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_marca`)
+CREATE TABLE `ta_oficina_carro` (
+  `cod_oficina` int(11) NOT NULL,
+  `cod_carro` int(11) NOT NULL,
+  PRIMARY KEY (`cod_oficina`,`cod_carro`),
+  KEY `fk_Oficina_has_Carro_Carro1_idx` (`cod_carro`),
+  KEY `fk_Oficina_has_Carro_Oficina1_idx` (`cod_oficina`),
+  CONSTRAINT `fk_Oficina_has_Carro_Carro1` FOREIGN KEY (`cod_carro`) REFERENCES `tb_carro` (`idt_carro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Oficina_has_Carro_Oficina1` FOREIGN KEY (`cod_oficina`) REFERENCES `tb_oficina` (`idt_oficina`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `marca`
+-- Dumping data for table `ta_oficina_carro`
 --
 
-LOCK TABLES `marca` WRITE;
-/*!40000 ALTER TABLE `marca` DISABLE KEYS */;
-INSERT INTO `marca` VALUES (1,'Fiat'),(2,'Hyundai'),(3,'Volkswagem'),(4,'BMW'),(5,'Audi');
-/*!40000 ALTER TABLE `marca` ENABLE KEYS */;
+LOCK TABLES `ta_oficina_carro` WRITE;
+/*!40000 ALTER TABLE `ta_oficina_carro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ta_oficina_carro` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24 10:18:21
+-- Dump completed on 2018-10-18 21:15:10

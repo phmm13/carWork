@@ -16,31 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `carro_cliente`
+-- Table structure for table `tb_marca`
 --
 
-DROP TABLE IF EXISTS `carro_cliente`;
+DROP TABLE IF EXISTS `tb_marca`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `carro_cliente` (
-  `carro_id_carro` int(11) NOT NULL,
-  `cliente_id_cliente` int(11) NOT NULL,
-  PRIMARY KEY (`carro_id_carro`,`cliente_id_cliente`),
-  KEY `fk_Carro_has_Cliente_Cliente1_idx` (`cliente_id_cliente`),
-  KEY `fk_Carro_has_Cliente_Carro_idx` (`carro_id_carro`),
-  CONSTRAINT `fk_Carro_has_Cliente_Carro` FOREIGN KEY (`carro_id_carro`) REFERENCES `carro` (`id_carro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Carro_has_Cliente_Cliente1` FOREIGN KEY (`cliente_id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `tb_marca` (
+  `idt_marca` int(11) NOT NULL,
+  `nme_marca` varchar(50) NOT NULL,
+  PRIMARY KEY (`idt_marca`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `carro_cliente`
+-- Dumping data for table `tb_marca`
 --
 
-LOCK TABLES `carro_cliente` WRITE;
-/*!40000 ALTER TABLE `carro_cliente` DISABLE KEYS */;
-INSERT INTO `carro_cliente` VALUES (5,4),(7,5),(6,6),(8,7),(9,8);
-/*!40000 ALTER TABLE `carro_cliente` ENABLE KEYS */;
+LOCK TABLES `tb_marca` WRITE;
+/*!40000 ALTER TABLE `tb_marca` DISABLE KEYS */;
+INSERT INTO `tb_marca` VALUES (1,'fiat'),(2,'Hyundai'),(3,'Volkswagem'),(4,'BMW'),(5,'Audi');
+/*!40000 ALTER TABLE `tb_marca` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24 10:18:21
+-- Dump completed on 2018-10-18 21:15:09

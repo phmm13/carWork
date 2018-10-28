@@ -16,35 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `endereco`
+-- Table structure for table `td_tipo_servico`
 --
 
-DROP TABLE IF EXISTS `endereco`;
+DROP TABLE IF EXISTS `td_tipo_servico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `endereco` (
-  `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
-  `cep` varchar(8) NOT NULL,
-  `logradouro` varchar(45) NOT NULL,
-  `bairro` varchar(45) NOT NULL,
-  `complemento` varchar(45) DEFAULT NULL,
-  `numero` int(11) NOT NULL,
-  `oficina_id_oficina` int(11) NOT NULL,
-  PRIMARY KEY (`id_endereco`),
-  UNIQUE KEY `ID_OFICINA_UNIQUE` (`id_endereco`),
-  KEY `fk_Endereço_Oficina1_idx` (`oficina_id_oficina`),
-  CONSTRAINT `fk_Endereço_Oficina1` FOREIGN KEY (`oficina_id_oficina`) REFERENCES `oficina` (`id_oficina`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+CREATE TABLE `td_tipo_servico` (
+  `idt_tipo_servio` int(11) NOT NULL AUTO_INCREMENT,
+  `dsc_tipo_servico` varchar(200) NOT NULL,
+  PRIMARY KEY (`idt_tipo_servio`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `endereco`
+-- Dumping data for table `td_tipo_servico`
 --
 
-LOCK TABLES `endereco` WRITE;
-/*!40000 ALTER TABLE `endereco` DISABLE KEYS */;
-INSERT INTO `endereco` VALUES (18,'72477533','SIA Q 3 C ','SIA','Q 3 C',3,13),(19,'73684486','SQS 414 BLOCO C ','ASA SUL','LOJA  42',42,14),(20,'72478972','\n								QNL 0 CONJUNTO F','TAGUATINGA SUL','LOJA 08 ',8,15),(22,'73684486','SQS 414 BLOCO C ','ASA SUL','LOJA  42',42,14),(23,'72477533','SIA Q 3 C ','SIA','Q 3 C',3,13),(24,'70568054','SIA Trecho 2 - Lote 1750 ','SIA','Lote 1750',1750,10);
-/*!40000 ALTER TABLE `endereco` ENABLE KEYS */;
+LOCK TABLES `td_tipo_servico` WRITE;
+/*!40000 ALTER TABLE `td_tipo_servico` DISABLE KEYS */;
+INSERT INTO `td_tipo_servico` VALUES (21,'Auto Eletrica'),(22,'Suspensao'),(23,'Freio'),(24,'Regulagem Eletronica'),(25,'Borracharia'),(26,'Troca de Oleo'),(27,'Som automotivo');
+/*!40000 ALTER TABLE `td_tipo_servico` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24 10:18:22
+-- Dump completed on 2018-10-18 21:15:09

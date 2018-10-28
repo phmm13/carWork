@@ -16,30 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `modelo`
+-- Table structure for table `tb_carro`
 --
 
-DROP TABLE IF EXISTS `modelo`;
+DROP TABLE IF EXISTS `tb_carro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `modelo` (
-  `id_modelo` int(11) NOT NULL,
-  `nome_modelo` varchar(45) NOT NULL,
-  `marca_id_marca` int(11) NOT NULL,
-  PRIMARY KEY (`id_modelo`),
-  KEY `fk_modelo_marca1_idx` (`marca_id_marca`),
-  CONSTRAINT `fk_modelo_marca1` FOREIGN KEY (`marca_id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `tb_carro` (
+  `idt_carro` int(11) NOT NULL AUTO_INCREMENT,
+  `ano_carro` year(4) NOT NULL,
+  `cod_versao` int(11) NOT NULL,
+  PRIMARY KEY (`idt_carro`),
+  KEY `fk_carro_versão1_idx` (`cod_versao`),
+  CONSTRAINT `fk_carro_versão1` FOREIGN KEY (`cod_versao`) REFERENCES `tb_versao` (`idt_versao`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `modelo`
+-- Dumping data for table `tb_carro`
 --
 
-LOCK TABLES `modelo` WRITE;
-/*!40000 ALTER TABLE `modelo` DISABLE KEYS */;
-INSERT INTO `modelo` VALUES (1,'Mobi',1),(2,'Argo',1),(3,'Uno',1),(4,'Siena',1),(5,'Strada',1),(6,'Fiorino',1),(7,'HB20',2),(8,'IX35',2),(9,'Creta',2),(10,'i30',2),(11,'Azera',2),(12,'Elantra',2),(13,'Gol',3),(14,'Up',3),(15,'Jetta',3),(16,'Polo',3),(17,'Fox',3),(18,'Golf',3),(19,'120i',4),(20,'140i',4),(21,'320i',4),(22,'528i',4),(23,'M4',4),(24,'X4',4),(25,'A1',5),(26,'A5',5),(27,'RS5',5),(28,'RS7',5),(29,'TT',5),(30,'Q3',5);
-/*!40000 ALTER TABLE `modelo` ENABLE KEYS */;
+LOCK TABLES `tb_carro` WRITE;
+/*!40000 ALTER TABLE `tb_carro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_carro` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24 10:18:21
+-- Dump completed on 2018-10-18 21:15:09

@@ -75,6 +75,7 @@ public class ModeloDAO extends DataBaseDAO {
         if (rs.next()) {
             mo1.setId_modelo(rs.getInt("idt_modelo"));
             mo1.setNome_modelo(rs.getString("nme_modelo"));
+            
             Marca ma = new Marca();
             ma.setId_marca(rs.getInt("cod_marca"));
             mo1.setMarca(ma.carregaPorId());

@@ -16,30 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `carro`
+-- Table structure for table `ta_servico_oficina`
 --
 
-DROP TABLE IF EXISTS `carro`;
+DROP TABLE IF EXISTS `ta_servico_oficina`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `carro` (
-  `id_carro` int(11) NOT NULL AUTO_INCREMENT,
-  `ano_carro` varchar(45) NOT NULL,
-  `versão_id_versao` int(11) NOT NULL,
-  PRIMARY KEY (`id_carro`),
-  KEY `fk_carro_versão1_idx` (`versão_id_versao`),
-  CONSTRAINT `fk_carro_versão1` FOREIGN KEY (`versão_id_versao`) REFERENCES `versao` (`id_versao`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+CREATE TABLE `ta_servico_oficina` (
+  `cod_servico` int(11) NOT NULL,
+  `cod_oficina` int(11) NOT NULL,
+  PRIMARY KEY (`cod_servico`,`cod_oficina`),
+  KEY `fk_tipo_servico_has_oficina_oficina1_idx` (`cod_oficina`),
+  KEY `fk_tipo_servico_has_oficina_tipo_servico1_idx` (`cod_servico`),
+  CONSTRAINT `fk_tipo_servico_has_oficina_oficina1` FOREIGN KEY (`cod_oficina`) REFERENCES `tb_oficina` (`idt_oficina`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tipo_servico_has_oficina_tipo_servico1` FOREIGN KEY (`cod_servico`) REFERENCES `td_tipo_servico` (`idt_tipo_servio`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `carro`
+-- Dumping data for table `ta_servico_oficina`
 --
 
-LOCK TABLES `carro` WRITE;
-/*!40000 ALTER TABLE `carro` DISABLE KEYS */;
-INSERT INTO `carro` VALUES (5,'2017',31),(6,'2010',60),(7,'2001',98),(8,'2018',91),(9,'2008',84);
-/*!40000 ALTER TABLE `carro` ENABLE KEYS */;
+LOCK TABLES `ta_servico_oficina` WRITE;
+/*!40000 ALTER TABLE `ta_servico_oficina` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ta_servico_oficina` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-24 10:18:21
+-- Dump completed on 2018-10-18 21:15:10
