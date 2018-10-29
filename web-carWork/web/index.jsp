@@ -91,19 +91,13 @@
                                         <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                                             <ul class="navbar-nav-menu">
                                                 <li class="dropdown">
-                                                    <a class="dropdown-toggle"  href="#">
-                                                        Home <span class="fa fa-caret-down"></span>
+                                                    <a class="dropdown-toggle"  href="index.jsp">
+                                                        home
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
                                                     <a class="dropdown-toggle"  href="catalogo.jsp">
-                                                        Serviços<span class="fa fa-caret-down"></span>
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown">
-                                                    <a class ="dropdown-toggle"  href="#">
-                                                        Quem Somos 
-                                                        <span class="fa fa-caret-down"></span>
+                                                        serviços
                                                     </a>
                                                 </li>
                                             </ul>

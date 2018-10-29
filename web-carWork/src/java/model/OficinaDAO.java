@@ -54,6 +54,7 @@ public class OficinaDAO extends DataBaseDAO {
         pstm.setString(9, of.getBai_oficina());
         pstm.setInt(10, of.getNum_oficina());
         pstm.setInt(11, of.getTipoOfcina().getId_tipo_oficina());
+        pstm.setInt(12, of.getId_oficina());
         pstm.execute();
         this.desconectar();
     }

@@ -1,12 +1,16 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.TipoOficina"%>
-<%
-    TipoOficina tipoOficina = new TipoOficina();
-    ArrayList<TipoOficina> listaTipoOficina = tipoOficina.listar();
+<%@include file="verificaLogin.jsp"%>
+<%    try {
+        Oficina oficina = new Oficina();
+        oficina = (Oficina) session.getAttribute("oficina");
+
+        TipoOficina tipoOficina = new TipoOficina();
+        ArrayList<TipoOficina> listaTipoOficina = tipoOficina.listar();
 %>
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
     <!-- Google Web Fonts
     ================================================== -->
@@ -34,7 +38,6 @@
 
     <link href="css/master.css" rel="stylesheet">
 
-    <link href="css/custom.css" rel="stylesheet">
     <!-- SWITCHER -->
 
 
@@ -70,7 +73,7 @@
         <header id="header" class="header-3">
             <!-- top-bar -->
 
-            <div class="top-bar">
+            <div class ="top-bar">
 
                 <div class="container">
 
@@ -78,12 +81,14 @@
 
                         <div class="contact-info-menu type-2">
 
-                            <div class ="contact-info-item lang-button">
+                            <div class="contact-info-item lang-button">
 
                                 <div class="flex-row flex-center">
-                                    <i class ="licon-earth"></i>
+
+                                    <i class="licon-earth"></i>
                                     <div class="item-inner">
                                     </div>
+
                                 </div>
 
                             </div>
@@ -91,9 +96,7 @@
                         </div>
 
                         <div class="slash-list">
-                            <span>Minha Conta: </span>
-                            <a href="login.jsp">Logar</a>
-                            <a href="cadastroOficina.jsp">Registrar</a>
+                            <a href="logoutOficina.jsp">Sair</a>
                         </div>
 
                     </div>
@@ -110,61 +113,44 @@
 
                                 <h3><img src="images/logo/logo.png" width="180" height="50" ></h3>
 
-                            </div>
-                            <div class="col-sm-9 col-xs-8">
-                                <div class ="b-nav__list wow slideInRight" data-wow-delay="0.3s">
-                                    <div class ="navbar-header">
 
-                                        <div class="collapse navbar-collapse navbar-main-slide" id="nav">
-                                            <ul class="navbar-nav-menu">
-                                                <li class="dropdown">
-                                                    <a class="dropdown-toggle"  href="index.jsp">
-                                                        home
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-toggle"  href="catalogo.jsp">
-                                                        serviços
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
+                            <h1>Bem vindo <%=oficina.getNome_oficina()%></h1>
                         </div>
                 </nav><!--b-nav-->
 
 
 
                 <!--main menu-->
+                <nav class="navbar navbar-light" style="background-color: #e3f2fd;padding-left:14%;">
 
-                <div class="menu-holder">
+                    <div class="collapse navbar-collapse" id="navbarText">
 
-                    <div class="container">
-
-                        <!-- - - - - - - - - - - - - - Navigation - - - - - - - - - - - - - - - - -->
-
-                        <hr width="0" size="0" align="center">
-
-                        <!-- - - - - - - - - - - - - end Navigation - - - - - - - - - - - - - - - -->
-
+                        <span class="navbar-text">
+                            <a href="cadastraServico.jsp">Cadastrar serviços</a>
+                        </span>
+                        <span class="navbar-text">
+                            <a href="cadastraCarro.jsp">Cadastrar carros</a>
+                        </span>
+                        <span class="navbar-text">
+                            <a href="alterarOficina.jsp">Aterar dados</a>
+                        </span>
                     </div>
-                </div>
+                </nav>
+
         </header>
 
-
         <!-- - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - -->
-
-        <div class="container">
+        <div class="container" style="width:35%;">
             <div class="row main">
                 <div class="panel-heading">
                 </div> 
                 <div class="main-login main-center">
-                    <form class="form-horizontal" method="POST" action="GerenciarOficina.do">
-                        <input type="hidden" name="op" value="cadastrar">
+                    <form class="form-horizontal" method="GET" action="GerenciarOficina.do">
+                        <input type="hidden" name="op" value="alterar">
+                        <input type="hidden" name="idOficina" value="<%=oficina.getId_oficina()%>">
 
-                        <center><h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">Cadastro da Oficina</h2> </center>
+                        <center><h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">Alteração de oficina</h2> </center>
 
 
                         <div class="form-group">
@@ -173,7 +159,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="cnpj" id="cnpj"
-                                           placeholder="Somente números" required="true"/>
+                                           required="true" disable value="<%=oficina.getCnpj_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +171,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="login" id="login"
-                                           placeholder="Informe o Login" required="true"/>
+                                           placeholder="Informe o Login" required="true" value="<%=oficina.getUsr_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +182,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                                     <input type="password" class="form-control" name="senha" id="senha"
-                                           placeholder="Informe Sua Senha" required="true"/>
+                                           placeholder="Informe Sua Senha" required="true" disable value="<%=oficina.getPwd_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +193,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="nome" id="nome"  
-                                           placeholder="Informe o Nome da Sua Oficia" required="true"/>
+                                           placeholder="Informe o Nome da Sua Oficia" required="true" value="<%=oficina.getNome_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +204,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="telefone" id="telefone"
-                                           placeholder="Somente números" required="true"/>
+                                           placeholder="Somente números" required="true" value="<%=oficina.getTelefone_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
@@ -230,13 +216,14 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <select class="form-control" name="tipoOficina" id="tipoOficina" required="true">
-                                        <option>Selecione o tipo</option>
+                                        <option value="<%=oficina.getTipoOfcina().getId_tipo_oficina()%>"><%=oficina.getTipoOfcina().getDes_oficina()%></option>
                                         <%
                                             for (TipoOficina to : listaTipoOficina) {
-
+                                                if (to.getId_tipo_oficina() != oficina.getTipoOfcina().getId_tipo_oficina()) {
                                         %>
                                         <option value="<%=to.getId_tipo_oficina()%>"> <%=to.getDes_oficina()%> </option>
                                         <%
+                                                }
                                             }
                                         %>
                                     </select>
@@ -251,7 +238,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="email" id="email"
-                                           placeholder="Informe o e-mail da Oficina" required="true"/>
+                                           placeholder="Informe o e-mail da Oficina" required="true" value="<%=oficina.getEml_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
@@ -263,7 +250,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="cep" id="cep"
-                                           placeholder="Informe o CEP" required="true"/>
+                                           placeholder="Informe o CEP" required="true" value="<%=oficina.getCep_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
@@ -274,7 +261,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="logradouro" id="logradouro"
-                                           placeholder="Informe o logradouro" required="true"/>
+                                           placeholder="Informe o logradouro" required="true" value="<%=oficina.getLgd_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
@@ -284,11 +271,11 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="bairro" id="bairro"
-                                           placeholder="Informe o bairro" required="true"/>
+                                           placeholder="Informe o bairro" required="true" value="<%=oficina.getBai_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
-                                    
+
 
                         <div class="form-group">
                             <label for="username" class="cols-sm-2 control-label">Número</label>
@@ -296,12 +283,12 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="numero" id="numero"
-                                           placeholder="Informe o número do endereço" required="true"/>
+                                           placeholder="Informe o número do endereço" required="true" value="<%=oficina.getNum_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group ">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Registrar</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Alterar</button>
                         </div>
 
                     </form>
@@ -309,21 +296,20 @@
             </div>
         </div>
 
-
-
-
         <!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
 
         <footer class="b-footer">
-            <a id="to-top" href="#this-is-top"><i class="fa fa-chevron-up"></i></a>
+
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
                         <div class="b-footer__company wow zoomInLeft" data-wow-delay="0.5s">
                             <div class="b-nav__logo">
-                                <h3><img src="images/logo/logo.png" width="150" height="50" ></h3>
+                                <h3><img src="images/logo/logo.png" width="150" height="50"></h3>
                             </div>
-                            <p>&copy; 2017 Powered by JJR Technology.</p>
+                            <p>&copy; 
+
+                                2017 Powered by JJR Technology.</p>
                         </div>
                     </div>
                     <div class="col-xs-8">
@@ -338,8 +324,6 @@
                             </div>
                             <nav class="b-footer__content-nav">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="#">Serviços</a></li>
                                     <li><a href="#">Quem Somos</a></li>
 
                                 </ul>
@@ -372,15 +356,19 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/modernizr.custom.js"></script>
 
-
+    <script src="assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
     <script src="js/waypoints.min.js"></script>
     <script src="js/jquery.easypiechart.min.js"></script>
     <script src="js/classie.js"></script>
 
     <!--Switcher-->
     <script src="assets/switcher/js/switcher.js"></script>
-
-
+    <!--Owl Carousel-->
+    <script src="assets/owl-carousel/owl.carousel.min.js"></script>
+    <!--bxSlider-->
+    <script src="assets/bxslider/jquery.bxslider.js"></script>
+    <!-- jQuery UI Slider -->
+    <script src="assets/slider/jquery.ui-slider.js"></script>
 
     <!--Theme-->
     <script src="js/jquery.smooth-scroll.js"></script>
@@ -389,3 +377,8 @@
     <script src="js/theme.js"></script>
 </body>
 </html>
+<%
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+%>

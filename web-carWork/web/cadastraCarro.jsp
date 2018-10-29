@@ -133,7 +133,7 @@
                             <a href="CadastraCarro.jsp">Cadastrar carros</a>
                         </span>
                         <span class="navbar-text">
-                            <a href="alterarOficina.jsp">Aterar dados</a>
+                            <a href="alteraOficina.jsp">Aterar dados</a>
                         </span>
                     </div>
                 </nav>

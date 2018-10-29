@@ -58,14 +58,28 @@ public class GerenciarOficina extends HttpServlet {
                     }
                     case "alterar":{
                         Oficina of = new Oficina();
-                        of.setId_oficina(Integer.parseInt(request.getParameter("id")));
-                        of.setNome_oficina(request.getParameter("nome"));
-                        of.setTelefone_oficina(request.getParameter("telefone"));
+                        
                         TipoOficina to = new TipoOficina();
                         to.setId_tipo_oficina(Integer.parseInt(request.getParameter("tipoOficina")));
                         of.setTipoOfcina(to);
+                        
+                        of.setId_oficina(Integer.parseInt(request.getParameter("idOficina")));
+                        of.setNome_oficina(request.getParameter("nome"));
+                        of.setTelefone_oficina(request.getParameter("telefone"));
+                        of.setCnpj_oficina(request.getParameter("cnpj"));
+                        of.setEml_oficina(request.getParameter("email"));
+                        of.setUsr_oficina(request.getParameter("login"));
+                        of.setPwd_oficina(request.getParameter("senha"));
+                        of.setCep_oficina(request.getParameter("cep"));
+                        of.setLgd_oficina(request.getParameter("logradouro"));
+                        of.setBai_oficina(request.getParameter("bairro"));
+                        of.setNum_oficina(Integer.parseInt(request.getParameter("numero")));
+                        
                         of.alterar();
-                        response.sendRedirect("index.jsp");
+                        
+                        session.removeAttribute("oficina");
+                        session.setAttribute("oficina", of.login(of.getUsr_oficina(),of.getPwd_oficina()));
+                        response.sendRedirect("indexOficina.jsp");
                         break;
                     }
                     case "excluir":{

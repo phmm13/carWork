@@ -122,16 +122,14 @@
                                         <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                                             <ul class="navbar-nav-menu">
                                                 <li class="dropdown">
-                                                    <a class="dropdown-toggle" data-toggle='dropdown' href="#">
-                                                        Home <span class="fa fa-caret-down"></span></a>
+                                                    <a class="dropdown-toggle"  href="index.jsp">
+                                                        home
+                                                    </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-toggle" data-toggle='dropdown' href="#">
-                                                        Servi�os<span class="fa fa-caret-down"></span></a>
-                                                </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-toggle" data-toggle='dropdown' href="#">
-                                                        Quem Somos <span class="fa fa-caret-down"></span></a>
+                                                    <a class="dropdown-toggle"  href="catalogo.jsp">
+                                                        servi�os
+                                                    </a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -177,7 +175,7 @@
         <div class="b-items">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-4 col-xs-12">
+                    <div class="col-lg-12">
                         <aside class="b-items__aside">
                             <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">FAZER BUSCA</h2>
                             <div class="b-items__aside-main wow zoomInUp" data-wow-delay="0.5s">
@@ -259,170 +257,12 @@
                             </div>
                         </aside>
                     </div>
-                    <div class="col-lg-9 col-sm-8 col-xs-12">
-                        <div class="b-items__cars">
-                            <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
-                                <div class="b-items__cars-one-img">
-                                    <img src="oficinas/no-img.png" alt='Oficina'/>
-                                    <span class="b-items__cars-one-img-type m-premium">Autorizada</span>
-                                </div>
-                                <div class="b-items__cars-one-info">
-                                    <form class="b-items__cars-one-info-header s-lineDownLeft">
-                                        <h2>Autorizada Automotive</h2>
-                                        <input type="checkbox" name="check1" id='check1'/>
-                                        <label for="check1" class="oficina1.jpg"><span class="fa fa-check"></span></label>
-                                    </form>
-                                    <div class="row s-noRightMargin">
-                                        <div class="col-md-9 col-xs-12">
-                                            <p>Oficina especializada em veiculos 4x4 e SUV'S </p>
-                                            <div class="m-width row m-smallPadding">
-                                                <div class="col-xs-6">
-                                                    <div class="row m-smallPadding">
-                                                        <div class="col-xs-6">
-                                                            <span class="b-items__cars-one-info-value">Tração</span>
-                                                            <span class="b-items__cars-one-info-value">Lanternagem</span>
-                                                            <span class="b-items__cars-one-info-value">Suspensão</span>
-                                                            <span class="b-items__cars-one-info-value">Suspensão</span>
-                                                            <span class="b-items__cars-one-info-value">SDSDADASASDão</span>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <div class="row m-smallPadding">
-                                                        <div class="col-xs-12">
-                                                            <span class="b-items__cars-one-info-value">Troca de Oleo</span>
-                                                            <span class="b-items__cars-one-info-value">Troca de Peças</span>
-                                                            <span class="b-items__cars-one-info-value">Revisão Especializada</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-xs-12">
-                                            <div class="b-items__cars-one-info-price">
-                                                <br>
-                                                <br>
-                                                <a href="detalhes.jsp" class="btn m-btn">Saiba Mais<span class="fa fa-angle-right"></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
-                                <div class="b-items__cars-one-img">
-                                    <img src="oficinas/no-img.png" alt='Oficina'/>
-                                    <span class="b-items__cars-one-img-type m-listing">Concessionaria</span>
-                                </div>
-                                <div class="b-items__cars-one-info">
-                                    <form class="b-items__cars-one-info-header s-lineDownLeft">
-                                        <h2>Concessionaria Chevrolet</h2>
-                                        <input type="checkbox" name="check2" id='check2'/>
-                                        <label for="check2" class="b-items__cars-one-img-check"><span class="fa fa-check"></span></label>
-                                    </form>
-                                    <div class="col-md-9 col-xs-12">
-                                        <p>Concessionaria Chevrolet. Atendemos todos os tipos de veiculos da Chevrolet, entre eles: Celta, Cruze, Colbat, Corsa, Vectra, etc</p>
-                                        <div class="m-width row m-smallPadding">
-                                            <div class="col-xs-6">
-                                                <div class="row m-smallPadding">
-                                                    <div class="col-xs-6">
-                                                        <span class="b-items__cars-one-info-value">Revisão Chevrolet</span>
-                                                        <span class="b-items__cars-one-info-value">Troca de peças </span>
-                                                        <span class="b-items__cars-one-info-value">Cabos e Velas </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <div class="row m-smallPadding">
-
-                                                    <div class="col-xs-12">
-                                                        <span class="b-items__cars-one-info-value">Freios</span>
-                                                        <span class="b-items__cars-one-info-value">Alinhamento e Balanceamento</span>
-                                                        <span class="b-items__cars-one-info-value">Amortecedores</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-xs-12">
-                                        <div class="b-items__cars-one-info-price">
-                                            <br>
-                                            <a href="detalhes1.jsp" class="btn m-btn">Saiba Mais<span class="fa fa-angle-right"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
-                                <div class="b-items__cars-one-img">
-                                    <img src="oficinas/no-img.png" alt='Oficina'/>
-                                    <span class="b-items__cars-one-img-type m-leasing">Oficina</span>
-                                </div>
-                                <div class="b-items__cars-one-info">
-                                    <form class="b-items__cars-one-info-header s-lineDownLeft">
-                                        <h2>Oficina All Motors</h2>
-                                        <input type="checkbox" name="check2" id='check2'/>
-                                        <label for="check2" class="b-items__cars-one-img-check"><span class="fa fa-check"></span></label>
-                                    </form>
-                                    <div class="col-md-9 col-xs-12">
-                                        <p>All Motors, Agora trabalhamos com MAZDA, KIA E HYUNDAI</p>
-                                        <div class="m-width row m-smallPadding">
-                                            <div class="col-xs-6">
-                                                <div class="row m-smallPadding">
-                                                    <div class="col-xs-6">
-                                                        <span class="b-items__cars-one-info-value">Troca de óleo</span>
-                                                        <span class="b-items__cars-one-info-value">Lanternagem</span>
-                                                        <span class="b-items__cars-one-info-value">Freios</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <div class="row m-smallPadding">
-
-                                                    <div class="col-xs-8">
-                                                        <span class="b-items__cars-one-info-value">Alinhamento </span>
-                                                        <span class="b-items__cars-one-info-value">Balancemento</span>
-                                                        <span class="b-items__cars-one-info-value">Cambagem</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-xs-12">
-                                        <div class="b-items__cars-one-info-price">
-                                            <br>
-                                            <a href="detalhes2.jsp" class="btn m-btn">Saiba Mais<span class="fa fa-angle-right"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="b-items__pagination wow zoomInUp" data-wow-delay="0.5s">
-                        <div class="b-items__pagination-main">
-                            <a href="#" class="m-left"><span class="fa fa-angle-left"></span></a>
-                            <span class="m-active"><a href="#">1</a></span>
-                            <span><a href="#">2</a></span>
-                            <span><a href="#">3</a></span>
-                            <span><a href="#">4</a></span>
-                            <a href="#" class="m-right"><span class="fa fa-angle-right"></span></a>    
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
 
-
-
     </div>
-</div>
-</div>
-</div>
 
 
 

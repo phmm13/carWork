@@ -118,20 +118,15 @@
                                         <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                                             <ul class="navbar-nav-menu">
                                                 <li class="dropdown">
-                                                    <a class ="dropdown-toggle" data-toggle='dropdown' href="#">Home <span class="fa fa-caret-down"></span></a>
-
+                                                    <a class="dropdown-toggle"  href="index.jsp">
+                                                        home
+                                                    </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-toggle" data-toggle='dropdown' href="#">Serviços<span class="fa fa-caret-down"></span></a>
-
+                                                    <a class="dropdown-toggle"  href="catalogo.jsp">
+                                                        serviços
+                                                    </a>
                                                 </li>
-
-
-                                                <li class="dropdown">
-                                                    <a class="dropdown-toggle" data-toggle='dropdown' href="#">Quem Somos <span class="fa fa-caret-down"></span></a>
-
-                                                </li>
-
                                             </ul>
                                         </div>
                                     </div>
