@@ -1,14 +1,5 @@
-<%@page import="model.TipoOficina"%>
-<%@page import="model.TipoServico"%>
-<%@page import="model.Carro"%>
-<%@page import="java.util.ArrayList"%>
-<%
-    ArrayList<Carro> carros = new Carro().listar();
-    ArrayList<TipoServico> servicos = new TipoServico().listar();
-    ArrayList<TipoOficina> tipoOficina = new TipoOficina().listar();
 
-%>
-?<!doctype html>
+<!doctype html>
 <html lang="en">
 
     <!-- Google Web Fonts

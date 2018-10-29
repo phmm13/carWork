@@ -161,8 +161,8 @@ public class Oficina {
         OficinaDAO oDAO = new OficinaDAO();
         return oDAO.carrosVinculados(this);
     }
-    public ArrayList<Oficina> buscaPorCarro(Carro c,TipoServico ts,TipoOficina to) throws Exception{
+    public ArrayList<Oficina> buscaPorCarro(int idCarro,int idTipoServico,int idTipoOficina) throws Exception{
         OficinaDAO oDAO = new OficinaDAO();
-        return oDAO.buscaPorCarro(c,ts,to);
+        return oDAO.buscaPorCarro(idCarro,idTipoServico,idTipoOficina);
     }
 }

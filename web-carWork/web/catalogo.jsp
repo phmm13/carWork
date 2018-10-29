@@ -1,3 +1,13 @@
+<%@page import="model.TipoOficina"%>
+<%@page import="model.TipoServico"%>
+<%@page import="model.Carro"%>
+<%@page import="java.util.ArrayList"%>
+<%
+    ArrayList<Carro> carros = new Carro().listar();
+    ArrayList<TipoServico> servicos = new TipoServico().listar();
+    ArrayList<TipoOficina> tipoOficina = new TipoOficina().listar();
+
+%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -171,13 +181,20 @@
                         <aside class="b-items__aside">
                             <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">FAZER BUSCA</h2>
                             <div class="b-items__aside-main wow zoomInUp" data-wow-delay="0.5s">
-                                <form>
+                                <form method="GET" action="buscaOficina.jsp">
                                     <div class="b-items__aside-main-body">
                                         <div class="b-items__aside-main-body-item">
                                             <label>SELECIONAR SERVI�O</label>
                                             <div>
-                                                <select name="select1" class="m-select">
-                                                    <option value="" ="">Revisão Geral</option>
+                                                <select name="tipoServico" id="tipoServico" class="m-select">
+                                                    <option value="">Selecione</option>
+                                                    <%                                                        
+                                                        for (TipoServico tsl : servicos) {
+                                                    %>
+                                                    <option value="<%=tsl.getId_tipo_servico()%>"> <%=tsl.getDes_tipo_servico()%> </option>
+                                                    <%
+                                                        }
+                                                    %>
                                                 </select>
                                                 <span class="fa fa-caret-down"></span>
                                             </div>
@@ -185,19 +202,22 @@
                                         <div class="b-items__aside-main-body-item">
                                             <label>SELECIONE SEU VEICULO</label>
                                             <div>
-                                                <select name="select1" class="m-select">
-                                                    <option value="" ="">VW Gol 1.0/1.6</option>
+                                                <select name="carro" id="carro" class="m-select">
+                                                    <option value="" >Selecione</option>
+                                                    <%
+                                                        for (Carro carro : carros) {
+                                                    %>
+                                                    <option value="<%=carro.getId_carro()%>"> <%=carro.getVersao().getModelo().getMarca().getNome_marca()%>
+                                                        /
+                                                        <%=carro.getVersao().getModelo().getNome_modelo()%>
+                                                        /
+                                                        <%=carro.getVersao().getNome_versao()%>
+                                                        /
+                                                        <%=carro.getAno_carro()%></option>
+                                                        <%
+                                                            }
+                                                        %>
 
-                                                </select>
-                                                <span class="fa fa-caret-down"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="b-items__aside-main-body-item">
-                                            <label>SELECIONE O ANO DO VE�CULO</label>
-                                            <div>
-                                                <select name="select1" class="m-select">
-                                                    <option value="" selected=""> < que 2000</option>
                                                 </select>
                                                 <span class="fa fa-caret-down"></span>
                                             </div>
@@ -205,16 +225,24 @@
                                         <div class="b-items__aside-main-body-item">
                                             <label>TIPO DE OFICINA</label>
                                             <div>
-                                                <select name="select1" class="m-select">
-                                                    <option value="" ="">Autorizada</option>
+                                                <select name="tipoOficina" id="tipoOficina" class="m-select">
+                                                    <option value="" >Selecione</option>
+                                                    <%                                                        
+                                                        for (TipoOficina tol : tipoOficina) {
+                                                    %>
+                                                    <option value="<%=tol.getId_tipo_oficina()%>"> <%=tol.getDes_oficina()%> </option>
+                                                    <%
+                                                        }
+                                                    %>
                                                 </select>
                                                 <span class="fa fa-caret-down"></span>
                                             </div>
                                         </div>
                                         <div class="">
-                                            <a href="submit1.html" class="btn m-btn">BUSCAR<span class="fa fa-angle-right"></span></a>
+                                            <button type="submit" class="btn m-btn">Buscar<span class="fa fa-angle-right"></span></button>
                                         </div>
                                     </div>
+                                </form>
 
 
                             </div>
@@ -256,15 +284,14 @@
                                                             <span class="b-items__cars-one-info-value">Suspensão</span>
                                                             <span class="b-items__cars-one-info-value">Suspensão</span>
                                                             <span class="b-items__cars-one-info-value">SDSDADASASDão</span>
-                                                            
+
                                                         </div>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <div class="row m-smallPadding">
-
-                                                        <div class="col-xs-8">
+                                                        <div class="col-xs-12">
                                                             <span class="b-items__cars-one-info-value">Troca de Oleo</span>
                                                             <span class="b-items__cars-one-info-value">Troca de Peças</span>
                                                             <span class="b-items__cars-one-info-value">Revisão Especializada</span>
@@ -277,7 +304,7 @@
                                             <div class="b-items__cars-one-info-price">
                                                 <br>
                                                 <br>
-                                                <a href="detalhes.html" class="btn m-btn">Saiba Mais<span class="fa fa-angle-right"></span></a>
+                                                <a href="detalhes.jsp" class="btn m-btn">Saiba Mais<span class="fa fa-angle-right"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -310,7 +337,7 @@
                                             <div class="col-xs-6">
                                                 <div class="row m-smallPadding">
 
-                                                    <div class="col-xs-8">
+                                                    <div class="col-xs-12">
                                                         <span class="b-items__cars-one-info-value">Freios</span>
                                                         <span class="b-items__cars-one-info-value">Alinhamento e Balanceamento</span>
                                                         <span class="b-items__cars-one-info-value">Amortecedores</span>
@@ -322,7 +349,7 @@
                                     <div class="col-md-3 col-xs-12">
                                         <div class="b-items__cars-one-info-price">
                                             <br>
-                                            <a href="detalhes1.html" class="btn m-btn">Saiba Mais<span class="fa fa-angle-right"></span></a>
+                                            <a href="detalhes1.jsp" class="btn m-btn">Saiba Mais<span class="fa fa-angle-right"></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -367,7 +394,7 @@
                                     <div class="col-md-3 col-xs-12">
                                         <div class="b-items__cars-one-info-price">
                                             <br>
-                                            <a href="detalhes2.html" class="btn m-btn">Saiba Mais<span class="fa fa-angle-right"></span></a>
+                                            <a href="detalhes2.jsp" class="btn m-btn">Saiba Mais<span class="fa fa-angle-right"></span></a>
                                         </div>
                                     </div>
                                 </div>

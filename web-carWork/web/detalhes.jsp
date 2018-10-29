@@ -252,9 +252,7 @@
             <h1>AUTOMOTIVE - Oficina Especializada 4x4  </h1>
 			
             <h3>Revisões, reparos e consertos.Oficina especializada em carros 4x4</h3>
-			<iframe  height="35" frameborder="0" scrolling="no" marginheight="1" marginwidth="1"
-   src="./avaliacao/single.php?id=1">
-</iframe>
+			
 			
           </div>
         </div>
