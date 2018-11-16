@@ -186,9 +186,10 @@ public class OficinaDAO extends DataBaseDAO {
 
     public ArrayList<TipoServico> servicosVinculados(Oficina of) throws Exception {
         ArrayList<TipoServico> lista = new ArrayList<TipoServico>();
-        String sql = "SELECT*FROM ta_servico_oficina";
+        String sql = "SELECT*FROM ta_servico_oficina WHERE cod_oficina = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
+        pstm.setInt(1,of.getId_oficina());
         ResultSet rs = pstm.executeQuery();
         while (rs.next()) {
             TipoServico ts = new TipoServico();
@@ -202,9 +203,10 @@ public class OficinaDAO extends DataBaseDAO {
 
     public ArrayList<Carro> carrosVinculados(Oficina of) throws Exception {
         ArrayList<Carro> lista = new ArrayList<Carro>();
-        String sql = "SELECT*FROM ta_oficina_carro";
+        String sql = "SELECT*FROM ta_oficina_carro WHERE cod_oficina = ?";
         this.conectar();
         PreparedStatement pstm = cn.prepareStatement(sql);
+        pstm.setInt(1, of.getId_oficina());
         ResultSet rs = pstm.executeQuery();
         while (rs.next()) {
             Carro c = new Carro();
