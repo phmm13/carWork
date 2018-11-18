@@ -268,7 +268,7 @@
                                     <p>
                                         Anuncie gratuitamente agora mesmo sua oficina em nosso Sistema!
                                     </p>
-                                    <a href="submit1.html" class="btn m-btn">CADASTRAR AGORA<span class="fa fa-angle-right"></span></a>
+                                    <a href="cadastroOficina.jsp" class="btn m-btn">CADASTRAR AGORA<span class="fa fa-angle-right"></span></a>
                                 </div>
                             </div>
                         </aside>

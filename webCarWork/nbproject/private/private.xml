@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/phmm/Documents/Ceub/7%20semestre/estagioSupervisionado/carWork/webCarWork/web/alteraOficina.jsp</file>
             <file>file:/C:/Users/phmm/Documents/Ceub/7%20semestre/estagioSupervisionado/carWork/webCarWork/src/java/model/OficinaDAO.java</file>
             <file>file:/C:/Users/phmm/Documents/Ceub/7%20semestre/estagioSupervisionado/carWork/webCarWork/src/java/model/Oficina.java</file>
@@ -10,6 +11,16 @@
             <file>file:/C:/Users/phmm/Documents/Ceub/7%20semestre/estagioSupervisionado/carWork/webCarWork/web/detalhes.jsp</file>
             <file>file:/C:/Users/phmm/Documents/Ceub/7%20semestre/estagioSupervisionado/carWork/webCarWork/src/java/control/GerenciarOficina.java</file>
             <file>file:/C:/Users/phmm/Documents/Ceub/7%20semestre/estagioSupervisionado/carWork/webCarWork/src/java/model/DataBaseDAO.java</file>
+=======
+            <file>file:/C:/Users/pedro/Documents/CienciaComputacao/UNICEUB/7%20semestre/carWork/webCarWork/web/cadastraCarro.jsp</file>
+            <file>file:/C:/Users/pedro/Documents/CienciaComputacao/UNICEUB/7%20semestre/carWork/webCarWork/web/catalogo.jsp</file>
+            <file>file:/C:/Users/pedro/Documents/CienciaComputacao/UNICEUB/7%20semestre/carWork/webCarWork/web/indexOficina.jsp</file>
+            <file>file:/C:/Users/pedro/Documents/CienciaComputacao/UNICEUB/7%20semestre/carWork/webCarWork/src/java/model/OficinaDAO.java</file>
+            <file>file:/C:/Users/pedro/Documents/CienciaComputacao/UNICEUB/7%20semestre/carWork/webCarWork/src/java/model/Oficina.java</file>
+            <file>file:/C:/Users/pedro/Documents/CienciaComputacao/UNICEUB/7%20semestre/carWork/webCarWork/src/java/control/GerenciarOficina.java</file>
+            <file>file:/C:/Users/pedro/Documents/CienciaComputacao/UNICEUB/7%20semestre/carWork/webCarWork/web/cadastroOficina.jsp</file>
+            <file>file:/C:/Users/pedro/Documents/CienciaComputacao/UNICEUB/7%20semestre/carWork/webCarWork/web/buscaOficina.jsp</file>
+>>>>>>> 6a73a9e3a34f29dea0d9da036c007d0f5c87600d
         </group>
     </open-files>
 </project-private>

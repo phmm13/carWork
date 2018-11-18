@@ -218,7 +218,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="telefone" id="telefone"
-                                           placeholder="Somente números" required="true"/>
+                                           placeholder="Somente números" required="true" maxlength="11"/>
                                 </div>
                             </div>
                         </div>
@@ -263,7 +263,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="cep" id="cep"
-                                           placeholder="Informe o CEP" required="true"/>
+                                           placeholder="Informe o CEP" required="true" maxlength=81"/>
                                 </div>
                             </div>
                         </div>

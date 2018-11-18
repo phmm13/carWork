@@ -9,6 +9,8 @@
     try{
     Oficina oficina = new Oficina();
     oficina = (Oficina) session.getAttribute("oficina");
+    System.out.println(oficina.getId_oficina());
+    System.out.println(oficina.toString());
     ArrayList<Carro> carros = oficina.carrosVinculados();
     ArrayList<TipoServico> servicos = oficina.servicosVinculados();
     
@@ -238,10 +240,14 @@
                 </div>
                 <div class="col-6 col-sm-4">
                    <%
-                        for(TipoServico ts : servicos){
+                       if(servicos.isEmpty()){
+                           out.println("Nenhum serviço vinculado ainda");
+                       }else{
+                           for(TipoServico ts : servicos){
                     %>
                     <%=ts.getDes_tipo_servico()%> <br/>
                     <%
+                            }
                         }
                     %>
                 </div>
@@ -253,15 +259,19 @@
                 </div>
                 <div class="col-6 col-sm-4">
                     <%
-                        for(Carro c : carros){
-                            Date data = entrada.parse(c.getAno_carro());
-                            out.println(c.getVersao().getModelo().getMarca().getNome_marca()); //marca
-                            out.println(c.getVersao().getModelo().getNome_modelo()); //modelo
-                            out.println(c.getVersao().getNome_versao()); //versao
-                            out.println(saida.format(data));
+                        if(carros.isEmpty()){
+                            out.println("Nenhum carro vinculado ainda");
+                        }else{
+                            for(Carro c : carros){
+                                Date data = entrada.parse(c.getAno_carro());
+                                out.println(c.getVersao().getModelo().getMarca().getNome_marca()); //marca
+                                out.println(c.getVersao().getModelo().getNome_modelo()); //modelo
+                                out.println(c.getVersao().getNome_versao()); //versao
+                                out.println(saida.format(data));
                     %>
                     <br/>
                     <%
+                            }
                         }
                     %>
                 </div>

@@ -189,7 +189,7 @@
                                         <div class="b-items__aside-main-body-item">
                                             <label>SELECIONAR SERVIÇO</label>
                                             <div>
-                                                <select name="tipoServico" id="tipoServico" class="m-select">
+                                                <select required="true" name="tipoServico" id="tipoServico" class="m-select">
                                                     <option value="">Selecione</option>
                                                     <%                                                        
                                                         for (TipoServico tsl : servicos) {
@@ -205,7 +205,7 @@
                                         <div class="b-items__aside-main-body-item">
                                             <label>SELECIONE SEU VEICULO</label>
                                             <div>
-                                                <select name="carro" id="carro" class="m-select">
+                                                <select required="true" name="carro" id="carro" class="m-select">
                                                     <option value="" >Selecione</option>
                                                     <%
                                                         for (Carro c : carros) {
@@ -230,7 +230,7 @@
                                         <div class="b-items__aside-main-body-item">
                                             <label>TIPO DE OFICINA</label>
                                             <div>
-                                                <select name="tipoOficina" id="tipoOficina" class="m-select">
+                                                <select required="true" name="tipoOficina" id="tipoOficina" class="m-select">
                                                     <option value="" >Selecione</option>
                                                     <%                                                        
                                                         for (TipoOficina tol : tipoOficina) {
@@ -259,7 +259,7 @@
                                     <p>
                                         Anuncie gratuitamente agora mesmo sua oficina em nosso Sistema!
                                     </p>
-                                    <a href="submit1.html" class="btn m-btn">CADASTRAR AGORA<span class="fa fa-angle-right"></span></a>
+                                    <a href="cadastroOficina.jsp" class="btn m-btn">CADASTRAR AGORA<span class="fa fa-angle-right"></span></a>
                                 </div>
                             </div>
                         </aside>
