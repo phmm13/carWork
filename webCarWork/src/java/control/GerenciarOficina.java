@@ -114,7 +114,7 @@ public class GerenciarOficina extends HttpServlet {
                         of.setNome_oficina(request.getParameter("nome"));
                         of.setTelefone_oficina(request.getParameter("telefone"));
                         of.setCnpj_oficina(request.getParameter("cnpj"));
-                        Integer.parseInt(request.getParameter("cnpj"));
+                        //Integer.parseInt(request.getParameter("cnpj"));
                         
                         of.setEml_oficina(request.getParameter("email"));
                         of.setUsr_oficina(request.getParameter("login"));

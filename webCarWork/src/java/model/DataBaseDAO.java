@@ -18,10 +18,10 @@ public class DataBaseDAO {
     public void conectar() throws Exception{
         Class.forName("com.mysql.jdbc.Driver");
         //alterar a senha conforme a maquina virtual
-        String banco = "carwork";
+        String banco = "bd";
         String user = "root";
-        String password = "";
-        cn = DriverManager.getConnection("jdbc:mysql://localhost/"+banco,user,password);
+        String password = "example";
+        cn = DriverManager.getConnection("jdbc:mysql://142.93.192.165:5556/"+banco,user,password);
     }
     
     public void desconectar() throws Exception{

@@ -1,4 +1,6 @@
 
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="model.Carro"%>
 <%@page import="java.util.ArrayList"%>
 <%@include file="verificaLogin.jsp"%>
@@ -6,7 +8,11 @@
         Oficina oficina = new Oficina();
         oficina = (Oficina) session.getAttribute("oficina");
 
-        ArrayList<Carro> carros = new Carro().listar();
+        ArrayList<Carro> carros = oficina.carrosNaoVinculados();
+        
+
+        SimpleDateFormat saida = new SimpleDateFormat("yyyy");
+        SimpleDateFormat entrada = new SimpleDateFormat("yyyy-MM-dd");
 
 %>
 <!doctype html>
@@ -162,12 +168,12 @@
                                 %>
                                 <option value="<%=cl.getId_carro()%>"> 
                                     <%=cl.getVersao().getModelo().getMarca().getNome_marca()%>
-                                    - 
                                     <%=cl.getVersao().getModelo().getNome_modelo()%>
-                                    -
                                     <%=cl.getVersao().getNome_versao()%>
-                                    -
-                                    <%=cl.getAno_carro()%>
+                                    <%
+                                        Date data = entrada.parse(cl.getAno_carro());
+                                        out.println(saida.format(data)); //ano
+                                    %>
 
                                 </option>
                                 <%
