@@ -218,6 +218,23 @@ public class OficinaDAO extends DataBaseDAO {
         return lista;
     }
 
+    public ArrayList<Carro> carrosNaoVinculados(Oficina of) throws Exception{
+        ArrayList<Carro> lista = new ArrayList<Carro>();
+        String sql = "SELECT tc.idt_carro FROM tb_carro tc "
+                        +"WHERE tc.idt_carro not in (select cod_carro from ta_oficina_carro  where cod_oficina = ?)";
+        this.conectar();
+        PreparedStatement pstm = cn.prepareStatement(sql);
+        pstm.setInt(1,of.getId_oficina());
+        ResultSet rs = pstm.executeQuery();
+        while(rs.next()){
+            Carro c = new Carro();
+            c.setId_carro(rs.getInt("idt_carro"));
+            c = c.carregaPorId();
+            lista.add(c);
+        }
+        this.desconectar();
+        return lista;
+    }
     public ArrayList<Oficina> buscaPorCarro(int idCarro,int idTipoServico,int idTipoOficina) throws Exception {
         ArrayList<Oficina> lista = new ArrayList<Oficina>();
         String sql = "SELECT * FROM tb_carro tba "

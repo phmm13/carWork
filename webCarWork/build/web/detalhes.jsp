@@ -218,6 +218,16 @@
                     <div class="row">
                         <div class="col-md-8 col-xs-12">
                             <div class="b-detail__main-info">
+                                <h4>Endereço</h4>
+                                <p><%
+                                        out.println(oficina.getBai_oficina()+ " " + oficina.getLgd_oficina() + oficina.getNum_oficina());
+                                    %>
+                                </p>
+                                <p>
+                                    <%
+                                        out.println("Cep - "+oficina.getCep_oficina());
+                                    %>
+                                </p>
                                 <h3>Veículos Atendidos</h3>
                                 <ul class="list-group ">
                                     <%
@@ -229,7 +239,7 @@
                                             out.println(cl.getVersao().getModelo().getMarca().getNome_marca()); //marca
                                             out.println(cl.getVersao().getModelo().getNome_modelo()); //modelo
                                             out.println(cl.getVersao().getNome_versao()); //versao
-                                            out.println(saida.format(data));
+                                            out.println(saida.format(data)); //ano
                                         %>
                                     </li>
                                     <%

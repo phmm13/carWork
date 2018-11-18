@@ -159,7 +159,7 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" name="cnpj" id="cnpj"
-                                           required="true" disable value="<%=oficina.getCnpj_oficina()%>"/>
+                                           required="true" disabled value="<%=oficina.getCnpj_oficina()%>"/>
                                 </div>
                             </div>
                         </div>
