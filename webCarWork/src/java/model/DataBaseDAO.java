@@ -24,8 +24,8 @@ public class DataBaseDAO {
         
         String banco = "carwork";
         String user = "root";
-        String password = "carwork"; //""
-        String endereco = "173.82.173.74/"; //localhost
+        String password = ""; //""
+        String endereco = "localhost/"; //localhost
         
         
         
